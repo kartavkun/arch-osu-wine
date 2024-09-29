@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Comment=щыг!
+Exec=.local/bin/osu
+GenericName=щыг!
+Name=osu!
+StartupNotify=true
