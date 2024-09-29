@@ -133,7 +133,7 @@ export WINE_ENABLE_ABS_TABLET_HACK=0 # Set this to 1 to play with absolute mode 
 
 AKATSUKI="-devserver akatsuki.gg"
 
-$UMU_RUN $OSUPATH/osu!.exe #$AKATSUKI # osu! launcher" | tee "$HOME/.local/bin/osu" >/dev/null
+$UMU_RUN $OSUPATH/osu!.exe # osu! launcher" | tee "$HOME/.local/bin/osu" >/dev/null
 chmod +x "$HOME/.local/bin/osu"
 
 # Make .desktop file for rofi/wofi
