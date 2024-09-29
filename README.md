@@ -6,7 +6,7 @@ This script installing drivers and osu! for Arch-based distros
 
 - Low audio latency
 - Better performance than Windows
-- Contains OpenTabletDriver, tosu and packages for osu files
+- Contains [OpenTabletDriver](https://opentabletdriver.net), [tosu](https://github.com/kotrikd/tosu) and packages for osu files
 - Fonts from Windows
 - udev rules for Sayodevice web-driver and Wootility
 
