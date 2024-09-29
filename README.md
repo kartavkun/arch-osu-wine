@@ -27,17 +27,17 @@ You need to edit `pipewire.conf` and `pipewire-pulse.conf` in `.config/pipewire`
 You need to change values in these files:
 
 `pipewire.conf`
-  default.clock.quantum    = ~~64~~ 128
-  default.clock.min-quantum  = ~~64~~ 128
+default.clock.quantum    = ~~64~~ 128
+default.clock.min-quantum  = ~~64~~ 128
 
 
 `pipewire-pulse.conf`
 node.latency = ~~64~~ 128/48000
 
-  pulse.min.req       = ~~64~~ 128/48000
-  pulse.default.req   = ~~64~~ 128/48000
-  pulse.min.frag      = ~~64~~ 128/48000
-  pulse.min.quantum   = ~~64~~ 128/48000
+pulse.min.req       = ~~64~~ 128/48000
+pulse.default.req   = ~~64~~ 128/48000
+pulse.min.frag      = ~~64~~ 128/48000
+pulse.min.quantum   = ~~64~~ 128/48000
 
 #### If you have other issues, notify me about it in [Issues](https://github.com/kartavkun/arch-osu-wine/issues)
 
