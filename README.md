@@ -34,10 +34,10 @@ You need to change values in these files:
 `pipewire-pulse.conf`
 node.latency = ~~64~~ 128/48000
 
-  pulse.min.req       = ~~64~~ 128/48000   # 5ms
-  pulse.default.req   = ~~64~~ 128/48000   # 20 milliseconds
-  pulse.min.frag      = ~~64~~ 128/48000   # 5ms
-  pulse.min.quantum   = ~~64~~ 128/48000   # 5ms
+  pulse.min.req       = ~~64~~ 128/48000
+  pulse.default.req   = ~~64~~ 128/48000
+  pulse.min.frag      = ~~64~~ 128/48000
+  pulse.min.quantum   = ~~64~~ 128/48000
 
 #### If you have other issues, notify me about it in [Issues](https://github.com/kartavkun/arch-osu-wine/issues)
 
