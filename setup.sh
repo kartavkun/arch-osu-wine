@@ -46,7 +46,7 @@ fi
 echo "All necessary packages have been successfully installed."
 
 # Install linux-zen kernel
-sudo pacman --noconfirm --needed linux-zen linux-zen-headers
+sudo pacman --noconfirm --needed linux-zen linux-zen-headers xdg-utils xdg-desktop-portal xdg-desktop-portal-gtk pipewire wireplumber
 
 # Определение вендора видеокарты
 VENDOR=$(lspci | grep -E "VGA|3D" | awk '{print $1}' | xargs -I{} lspci -s {} -n | awk '{print $3}' | cut -d':' -f1)
@@ -109,44 +109,6 @@ mv "$HOME/.local/share/wineprefixes/osu-umu" "$HOME/.local/share/wineprefixes/os
 mkdir ~/osu/
 wget --output-document ~/osu/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
 
-# Make start file for osu!
-echo "#!/usr/bin/env bash
-export WINEESYNC=1 # PROTON_NO_ESYNC=1 is also needed to disable
-export WINEFSYNC=1 # PROTON_NO_FSYNC=1 is also needed to disable
-export UMU_RUNTIME_UPDATE=0 # Setting Steam Runtime updates off by default
-export PROTONPATH="$HOME/.local/share/osuconfig/proton-osu"
-export WINESERVER_PATH="$PROTONPATH/files/bin/wineserver"
-export WINE_PATH="$PROTONPATH/files/bin/wine"
-export WINETRICKS_PATH="$PROTONPATH/protontricks/winetricks"
-export GAMEID="osu-wine-umu"
-UMU_RUN="$PROTONPATH/umu-run"
-
-export WINE_BLOCK_GET_VERSION=1 # Hides wine ver. thanks to oglfreak's patch
-export WINEARCH=win64
-export WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix"
-export OSUPATH="$HOME/osu"
-export vblank_mode=0            # Disables vsync for mesa
-export __GL_SYNC_TO_VBLANK=0    # Disables vsync for NVIDIA >=510
-export WINEDLLOVERRIDES=winemenubuilder.exe=d# # Blocks wine from creating .desktop files
-export WINE_ENABLE_GLCHILD_HACK=1 # Set this to 0 to fix black top-panel in editor!
-export WINE_ENABLE_ABS_TABLET_HACK=0 # Set this to 1 to play with absolute mode in OTD on Wayland (might cause issues with cursor, but feel free to try!)
-
-export STAGING_AUDIO_DURATION=13333 #1.333ms at 48KHz
-export STAGING_AUDIO_PERIOD=13333 #1.333ms at 48KHz
-
-$UMU_RUN $OSUPATH/osu!.exe $DEVSERVER # osu! launcher" | tee "$HOME/.local/bin/osu" >/dev/null
-chmod +x "$HOME/.local/bin/osu"
-
-# Make .desktop file for rofi/wofi
-echo "[Desktop Entry]
-Type=Application
-Comment=щыг!
-Exec=.local/bin/osu
-GenericName=щыг!
-Name=osu!
-StartupNotify=true" | tee "$HOME/.local/share/applications/osu.desktop" >/dev/null
-chmod +x "$HOME/.local/share/applications/osu-wine.desktop"
-
 # Make web driver work with SayoDevices
 echo "# SayoDevice O3C
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1d6b", TAG+="uaccess"
@@ -192,10 +154,19 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/kartavkun/arch-osu-wine $HOME/ArchOsu
 
 # Определяем пути
+DOT_LOCAL_DIR="$HOME/.local"
 FILES_DIR="$HOME/ArchOsu/files"
 FONTS_DIR="$FILES_DIR/fonts"
 CONFIG_DIR="$FILES_DIR/config"
 HOME_CONFIG_DIR="$HOME/.config"
+
+# Make start file for osu!
+cp $FILES_DIR $DOT_LOCAL_DIR/bin
+chmod +x "$HOME/.local/bin/osu"
+
+# Make .desktop file for rofi/wofi
+cp $FILES_DIR $DOT_LOCAL_DIR/share
+chmod +x "$HOME/.local/share/applications/osu.desktop"
 
 # Функция для копирования шрифтов
 echo "Installing fonts from Windows..."
