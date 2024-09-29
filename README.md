@@ -45,8 +45,8 @@ pulse.min.quantum   = ~~64~~ 128/48000
 #### If you have other issues, notify me about it in [Issues](https://github.com/kartavkun/arch-osu-wine/issues)
 
 ## Credits:
-[Wineprefix by NelloKudo](https://gitlab.com/NelloKudo/osu-winello-prefix)
-[Proton by whrvt](https://github.com/whrvt/umubuilder)
+- [Wineprefix by NelloKudo](https://gitlab.com/NelloKudo/osu-winello-prefix)
+- [Proton by whrvt](https://github.com/whrvt/umubuilder)
 
 ## License
 
