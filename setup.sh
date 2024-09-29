@@ -1,5 +1,6 @@
 #!/bin/bash
 
+run_script() {
 # Путь к файлу конфигурации pacman
 PACMAN_CONF="/etc/pacman.conf"
 
@@ -13,8 +14,6 @@ fi
 if awk '/^\[multilib\]/{f=1} f && /^[[:space:]]*#\s*Include = \/etc\/pacman.d\/mirrorlist/{print; f=0} f && /^\[/{f=0} {print}' "$PACMAN_CONF" | grep -q "Include"; then
     sudo sed -i '/^\[multilib\]/,/^\[/{s/^[[:space:]]*#\s*Include = \/etc\/pacman.d\/mirrorlist/Include = \/etc\/pacman.d\/mirrorlist/}' "$PACMAN_CONF"
 fi
-
-# Скрипт завершён
 
 # Install necessary packages
 PACKAGES=("wget" "base-devel" "git" "go" "zenity" "xdg-desktop-portal")
@@ -45,6 +44,9 @@ else
 fi
 
 echo "All necessary packages have been successfully installed."
+
+# Install linux-zen kernel
+sudo pacman --noconfirm --needed linux-zen linux-zen-headers
 
 # Определение вендора видеокарты
 VENDOR=$(lspci | grep -E "VGA|3D" | awk '{print $1}' | xargs -I{} lspci -s {} -n | awk '{print $3}' | cut -d':' -f1)
@@ -225,3 +227,17 @@ select version in "64" "128"; do
             ;;
     esac
 done
+}
+
+if [[ -f /etc/os-release ]]; then
+    . /etc/os-release
+    if [[ "$ID" == "arch" || "$ID_LIKE" == *"arch"* ]]; then
+        run_script
+    else
+        echo "Why you try to use this script on not Arch-based distro???"
+        exit 1
+    fi
+else
+    echo "idk what is your distro, sorry..."
+    exit 1
+fi
