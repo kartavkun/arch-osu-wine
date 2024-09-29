@@ -161,11 +161,11 @@ CONFIG_DIR="$FILES_DIR/config"
 HOME_CONFIG_DIR="$HOME/.config"
 
 # Make start file for osu!
-cp $FILES_DIR $DOT_LOCAL_DIR/bin
+cp $FILES_DIR/osu $DOT_LOCAL_DIR/bin
 chmod +x "$HOME/.local/bin/osu"
 
 # Make .desktop file for rofi/wofi
-cp $FILES_DIR $DOT_LOCAL_DIR/share
+cp $FILES_DIR/osu.desktop $DOT_LOCAL_DIR/share
 chmod +x "$HOME/.local/share/applications/osu.desktop"
 
 # Функция для копирования шрифтов
