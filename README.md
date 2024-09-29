@@ -45,6 +45,11 @@ You need to change values in these files:
 > pulse.min.quantum   = ~~64~~ 128/48000
 > 
 
+Then execute this command
+```
+systemctl --user restart pipewire.service pipewire.socket wireplumber.service pipewire-pulse.service pipewire-pulse.socket
+```
+
 #### If you have other issues, notify me about it in [Issues](https://github.com/kartavkun/arch-osu-wine/issues)
 
 ## Credits:
