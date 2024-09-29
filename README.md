@@ -29,7 +29,7 @@ You need to change values in these files:
 `pipewire.conf`
 
 > default.clock.quantum    = ~~64~~ 128
-
+>
 > default.clock.min-quantum  = ~~64~~ 128
 
 `pipewire-pulse.conf`
