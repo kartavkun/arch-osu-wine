@@ -99,7 +99,7 @@ wget -O "$HOME/.winellotmp/proton-osu-9-5.tar.xz" "$PROTONLINK" && chk="$?"
 wget -O "$HOME/.winellotmp/osu-winello-prefix-umu.tar.xz" "$WINEPREFIX" && chk="$?" 
 
 # Extract Proton
-tar -xf "$HOME/.winellotmp/proton-osu-9-5.tar.xz.tar.xz" -C "$HOME/.local/share/osuconfig"
+tar -xf "$HOME/.winellotmp/proton-osu-9-5.tar.xz" -C "$HOME/.local/share/osuconfig"
 
 # Extract Wineprefix
 tar -xf "$HOME/.winellotmp/osu-winello-prefix-umu.tar.xz" -C "$HOME/.local/share/wineprefixes"
@@ -131,9 +131,9 @@ export WINEDLLOVERRIDES=winemenubuilder.exe=d# # Blocks wine from creating .desk
 export WINE_ENABLE_GLCHILD_HACK=1 # Set this to 0 to fix black top-panel in editor!
 export WINE_ENABLE_ABS_TABLET_HACK=0 # Set this to 1 to play with absolute mode in OTD on Wayland (might cause issues with cursor, but feel free to try!)
 
-AKATSUKI="-devserver akatsuki.gg"
+DEVSERVER="-devserver "
 
-$UMU_RUN $OSUPATH/osu!.exe # osu! launcher" | tee "$HOME/.local/bin/osu" >/dev/null
+$UMU_RUN $OSUPATH/osu!.exe $DEVSERVER # osu! launcher" | tee "$HOME/.local/bin/osu" >/dev/null
 chmod +x "$HOME/.local/bin/osu"
 
 # Make .desktop file for rofi/wofi
