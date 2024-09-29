@@ -208,25 +208,8 @@ echo "The fonts successfully installed."
 echo "Install wireplumber config files"
 cp -r "$CONFIG_DIR/wireplumber" "$HOME_CONFIG_DIR/"
 
-echo "Quantum value 64 is recommended, but if your CPU is not good, try 128"
-echo "Select quantum:"
-select version in "64" "128"; do
-    case $version in
-        64)
-            echo "Installing pipewire configs with quantum 64..."
-            cp -r "$CONFIG_DIR/quantum/64" "$HOME_CONFIG_DIR/"
-            break
-            ;;
-        128)
-            echo "Installing pipewire configs with quantum 128..."
-            cp -r "$CONFIG_DIR/quantum/128" "$HOME_CONFIG_DIR/"
-            break
-            ;;
-        *)
-            echo "Select 64 or 128"
-            ;;
-    esac
-done
+echo "Install wireplumber config files"
+cp -r "$CONFIG_DIR/pipewire" "$HOME_CONFIG_DIR/"
 }
 
 if [[ -f /etc/os-release ]]; then
