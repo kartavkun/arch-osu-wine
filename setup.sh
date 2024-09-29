@@ -211,6 +211,8 @@ cp -r "$CONFIG_DIR/wireplumber" "$HOME_CONFIG_DIR/"
 
 echo "Install pipewire config files"
 cp -r "$CONFIG_DIR/pipewire" "$HOME_CONFIG_DIR/"
+
+systemctl --user restart pipewire.service pipewire.socket wireplumber.service pipewire-pulse.service pipewire-pulse.socket
 }
 
 if [[ -f /etc/os-release ]]; then
