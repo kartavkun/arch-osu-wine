@@ -16,12 +16,12 @@ if awk '/^\[multilib\]/{f=1} f && /^[[:space:]]*#\s*Include = \/etc\/pacman.d\/m
 fi
 
 # Install necessary packages
-PACKAGES=("wget" "base-devel" "git" "go" "zenity" "xdg-desktop-portal")
+PACKAGES=("wget" "base-devel" "git" "go" "zenity" "xdg-desktop-portal" "linux-zen" "linux-zen-headers" "pipewire" "wireplumber" "xdg-utils" "xdg-desktop-portal-gtk")
 
 for PACKAGE in "${PACKAGES[@]}"; do
     if ! pacman -Qi "$PACKAGE" &> /dev/null; then
         echo "Installing package '$PACKAGE'..."
-        if ! sudo pacman -S --noconfirm "$PACKAGE"; then
+        if ! sudo pacman -S --noconfirm --needed "$PACKAGE"; then
             echo "Error: Failed to install package '$PACKAGE'."
             exit 1
         fi
@@ -42,11 +42,6 @@ if ! command -v yay &> /dev/null; then
 else
     echo "yay is already installed."
 fi
-
-echo "All necessary packages have been successfully installed."
-
-# Install linux-zen kernel
-sudo pacman --noconfirm --needed linux-zen linux-zen-headers xdg-utils xdg-desktop-portal xdg-desktop-portal-gtk pipewire wireplumber
 
 # Определение вендора видеокарты
 VENDOR=$(lspci | grep -E "VGA|3D" | awk '{print $1}' | xargs -I{} lspci -s {} -n | awk '{print $3}' | cut -d':' -f1)
