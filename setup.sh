@@ -131,6 +131,9 @@ export WINEDLLOVERRIDES=winemenubuilder.exe=d# # Blocks wine from creating .desk
 export WINE_ENABLE_GLCHILD_HACK=1 # Set this to 0 to fix black top-panel in editor!
 export WINE_ENABLE_ABS_TABLET_HACK=0 # Set this to 1 to play with absolute mode in OTD on Wayland (might cause issues with cursor, but feel free to try!)
 
+export STAGING_AUDIO_DURATION=13333 #1.333ms at 48KHz
+export STAGING_AUDIO_PERIOD=13333 #1.333ms at 48KHz
+
 DEVSERVER="-devserver "
 
 $UMU_RUN $OSUPATH/osu!.exe $DEVSERVER # osu! launcher" | tee "$HOME/.local/bin/osu" >/dev/null
@@ -208,7 +211,7 @@ echo "The fonts successfully installed."
 echo "Install wireplumber config files"
 cp -r "$CONFIG_DIR/wireplumber" "$HOME_CONFIG_DIR/"
 
-echo "Install wireplumber config files"
+echo "Install pipewire config files"
 cp -r "$CONFIG_DIR/pipewire" "$HOME_CONFIG_DIR/"
 }
 
