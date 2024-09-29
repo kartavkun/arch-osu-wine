@@ -134,8 +134,6 @@ export WINE_ENABLE_ABS_TABLET_HACK=0 # Set this to 1 to play with absolute mode 
 export STAGING_AUDIO_DURATION=13333 #1.333ms at 48KHz
 export STAGING_AUDIO_PERIOD=13333 #1.333ms at 48KHz
 
-DEVSERVER="-devserver "
-
 $UMU_RUN $OSUPATH/osu!.exe $DEVSERVER # osu! launcher" | tee "$HOME/.local/bin/osu" >/dev/null
 chmod +x "$HOME/.local/bin/osu"
 
