@@ -171,7 +171,7 @@ chmod +x "$HOME/.local/share/applications/osu.desktop"
 # Функция для копирования шрифтов
 echo "Installing fonts from Windows..."
 sudo cp -r "$FONTS_DIR"/* /usr/share/fonts/
-chmod 644 /usr/share/fonts/WindowsFonts/*
+sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 sudo fc-cache --force
 sudo fc-cache-32 --force
 echo "The fonts successfully installed."
