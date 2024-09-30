@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Comment=osu!Gatari
+Exec=.local/bin/osu-gatari
+GenericName=osu!Gatari
+Name=osu!
+StartupNotify=true

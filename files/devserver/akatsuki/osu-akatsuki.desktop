@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Comment=osu!Akatsuki
+Exec=.local/bin/osu-akatsuki
+GenericName=osu!Akatsuki
+Name=osu!Akatsuki
+StartupNotify=true
