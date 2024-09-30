@@ -1,0 +1,9 @@
+# SayoDevice O3C
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1d6b", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1d6b", TAG+="uaccess"
+
+# SayoDevice O3C++ / CMF51+
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="8089", TAG+="uaccess" 
+SUBSYSTEM=="usb", ATTRS{idVendor}=="8089", TAG+="uaccess"
+
+# SayoDevice ???

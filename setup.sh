@@ -104,47 +104,6 @@ mv "$HOME/.local/share/wineprefixes/osu-umu" "$HOME/.local/share/wineprefixes/os
 mkdir ~/osu/
 wget --output-document ~/osu/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
 
-# Make web driver work with SayoDevices
-echo "# SayoDevice O3C
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1d6b", TAG+="uaccess"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="1d6b", TAG+="uaccess"
-
-# SayoDevice O3C++ / CMF51+
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="8089", TAG+="uaccess" 
-SUBSYSTEM=="usb", ATTRS{idVendor}=="8089", TAG+="uaccess"
-
-# SayoDevice ???" |  sudo tee "/etc/udev/rules.d/70-sayo.rules" >/dev/null
-
-# Make web driver work with Wooting
-echo "# Wooting One Legacy
-
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", TAG+="uaccess"
-
-SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", TAG+="uaccess"
-
-# Wooting One update mode
-
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402", TAG+="uaccess"
-
-# Wooting Two Legacy
-
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", TAG+="uaccess"
-
-SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", TAG+="uaccess"
-
-# Wooting Two update mode
-
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403", TAG+="uaccess"
-
-# Generic Wootings
-
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", TAG+="uaccess"
-
-SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", TAG+="uaccess"" | sudo tee "/etc/udev/rules.d/70-wooting.rules" >/dev/null
-
-# Init udev rules
-sudo udevadm control --reload-rules && sudo udevadm trigger
-
 # Clone git repo with all files
 git clone https://github.com/kartavkun/arch-osu-wine $HOME/ArchOsu
 
@@ -154,13 +113,14 @@ FILES_DIR="$HOME/ArchOsu/files"
 FONTS_DIR="$FILES_DIR/fonts"
 CONFIG_DIR="$FILES_DIR/config"
 HOME_CONFIG_DIR="$HOME/.config"
+UDEV_RULES_DIR="/etc/udev/rules.d"
 
 # Make start file for osu!
-cp $FILES_DIR/osu $DOT_LOCAL_DIR/bin
+cp $FILES_DIR/.local/osu $DOT_LOCAL_DIR/bin
 chmod +x "$HOME/.local/bin/osu"
 
 # Make .desktop file for rofi/wofi
-cp $FILES_DIR/osu.desktop $DOT_LOCAL_DIR/share
+cp $FILES_DIR/.local/osu.desktop $DOT_LOCAL_DIR/share
 chmod +x "$HOME/.local/share/applications/osu.desktop"
 
 # Функция для копирования шрифтов
@@ -170,6 +130,10 @@ sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 sudo fc-cache --force
 sudo fc-cache-32 --force
 echo "The fonts successfully installed."
+
+# Add udev rules
+cp $FILES_DIR/udev/* $UDEV_RULES_DIR
+sudo udevadm control --reload-rules && sudo udevadm trigger
 
 # Функция для копирования конфигов
 echo "Install wireplumber config files"
