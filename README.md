@@ -8,7 +8,7 @@ This script installing drivers and osu! for Arch-based distros
 - Better performance than Windows
 - Contains [OpenTabletDriver](https://opentabletdriver.net), [tosu](https://github.com/kotrikd/tosu) and packages for osu files
 - Fonts from Windows
-- udev rules for Sayodevice web-driver and Wootility
+- udev rules for [Sayodevice web-driver](https://sayodevice.com/home) and [Wootility](https://wootility.io/) #####(ONLY ON CHROMIUM-BASED BROWSERS)
 
 ## Installation
 
@@ -55,6 +55,8 @@ systemctl --user restart pipewire.service pipewire.socket wireplumber.service pi
 ## Credits:
 - [Wineprefix by NelloKudo](https://gitlab.com/NelloKudo/osu-winello-prefix)
 - [Proton by whrvt](https://github.com/whrvt/umubuilder)
+- (Udev rules for Wooting by Wooting themselves](https://wootility.io/](https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules)
+- (Udev rules for SayoDevice by me)[https://www.reddit.com/r/osugame/comments/1fa919k/how_to_fix_sayodevice_web_app_on_linux/]
 
 ## License
 
