@@ -158,7 +158,7 @@ fi
 
 # Функция для копирования шрифтов
 echo "Installing fonts from Windows..."
-sudo cp -r "$FONTS_DIR"/* /usr/share/fonts/
+sudo cp -r $FONTS_DIR/* /usr/share/fonts/
 sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 sudo fc-cache --force
 sudo fc-cache-32 --force
