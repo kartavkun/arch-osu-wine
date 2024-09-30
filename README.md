@@ -55,7 +55,7 @@ systemctl --user restart pipewire.service pipewire.socket wireplumber.service pi
 ## Credits:
 - [Wineprefix by NelloKudo](https://gitlab.com/NelloKudo/osu-winello-prefix)
 - [Proton by whrvt](https://github.com/whrvt/umubuilder)
-- [Udev rules for Wooting by [Wooting themselves](https://wootility.io/) ](https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules)
+- [Udev rules for Wooting by Wooting themselves](https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules)
 - [Udev rules for SayoDevice by me](https://www.reddit.com/r/osugame/comments/1fa919k/how_to_fix_sayodevice_web_app_on_linux/)
 
 ## License
