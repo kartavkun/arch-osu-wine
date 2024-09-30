@@ -44,7 +44,11 @@ else
 fi
 
 # Определение вендора видеокарты
-VENDOR=$(lspci | grep -E "VGA|3D" | awk '{print $1}' | xargs -I{} lspci -s {} -n | awk '{print $3}' | cut -d':' -f1)
+VENDOR=$(lspci | grep -E "VGA|3D" | awk '{print $1}' | xargs -I{} lspci -s {} -n | awk '{print $3}' | cut -d':' -f1 | tr '\n' '_' | sed 's/_$//')
+
+# 10de - NVIDIA
+# 1002 - AMD 
+# 8086 - Intel
 
 # Установка драйверов в зависимости от вендора
 case $VENDOR in
@@ -60,6 +64,31 @@ case $VENDOR in
     echo "Обнаружена Intel. Установка драйверов..."
     sudo pacman -Syu --needed --noconfirm lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
     ;;
+  8086_10de)
+    echo "Обнаружена гибридная графика NVIDIA и Intel. Установка драйверов..."
+    sudo pacman -Syu --needed --noconfirm nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+    ;;
+  10de_8086)
+    echo "Обнаружена гибридная графика NVIDIA и Intel. Установка драйверов..."
+    sudo pacman -Syu --needed --noconfirm nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+    ;;
+  1002_10de)
+    echo "Обнаружена гибридная графика NVIDIA и AMD. Установка драйверов..."
+    sudo pacman -Syu --needed --noconfirm nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader mesa xf86-video-amdgpu lib32-libva-mesa-driver lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
+    ;;
+  10de_1002)
+    echo "Обнаружена гибридная графика NVIDIA и AMD. Установка драйверов..."
+    sudo pacman -Syu --needed --noconfirm nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader mesa xf86-video-amdgpu lib32-libva-mesa-driver lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
+    ;;
+  8086_1002)
+    echo "Обнаружена гибридная графика AMD и Intel. Установка драйверов..."
+    sudo pacman -Syu --needed --noconfirm mesa xf86-video-amdgpu lib32-libva-mesa-driver lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+    ;;
+  1002_8086)
+    echo "Обнаружена гибридная графика AMD и Intel. Установка драйверов..."
+    sudo pacman -Syu --needed --noconfirm mesa xf86-video-amdgpu lib32-libva-mesa-driver lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+    ;;
+
   *)
     echo "Вендор видеокарты не распознан. Убедитесь, что у вас установлены соответствующие драйвера."
     exit 1
