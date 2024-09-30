@@ -18,6 +18,9 @@ You need to paste the command below into your terminal and follow the instructio
 bash <(curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh)
 ```
 
+Also I highly recommend to use DE or WM with Xorg instead of Wayland. For example, [i3](https://i3wm.org/)
+For gaming laptop with hybrid graphics IS IMPORTANT
+
 ## Troubleshooting
 #### Audio is "farting"
 The problem is your CPU, is kinda slow, but you can fix it (probably)
@@ -57,6 +60,7 @@ systemctl --user restart pipewire.service pipewire.socket wireplumber.service pi
 - [Proton by whrvt](https://github.com/whrvt/umubuilder)
 - [Udev rules for Wooting by Wooting themselves](https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules)
 - [Udev rules for SayoDevice by me](https://www.reddit.com/r/osugame/comments/1fa919k/how_to_fix_sayodevice_web_app_on_linux/)
+- Nvidia prio in Xorg for hybrid graphic made with [Yudek](https://osu.ppy.sh/users/16149779)
 
 ## License
 
