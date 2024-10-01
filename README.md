@@ -19,6 +19,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main
 ```
 
 Also I highly recommend to use DE or WM with Xorg instead of Wayland. For example, [i3](https://i3wm.org/)
+
 For gaming laptop with hybrid graphics IS IMPORTANT
 
 ## Troubleshooting
