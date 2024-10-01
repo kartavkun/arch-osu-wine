@@ -227,7 +227,7 @@ cp $FILES_DIR/.local/osu.desktop $DOT_LOCAL_DIR/share/applications
 chmod +x $HOME/.local/share/applications/osu.desktop
 
 # Add devservers
-read -p "Do you want to add osu! shortcut for Akatsuki? (y/n) [по умолчанию n]: " choice
+read -p "Do you want to add osu! shortcut for Akatsuki? (y/n) [default: n]: " choice
 choice=${choice:-n}  # Устанавливаем значение по умолчанию на 'n', если пользователь нажал Enter
 
 if [[ "$choice" == "y" ]]; then
@@ -236,7 +236,7 @@ else
     echo "Okay"
 fi
 
-read -p "Do you want to add osu! shortcut for Gatari? (y/n) [по умолчанию n]: " choice
+read -p "Do you want to add osu! shortcut for Gatari? (y/n) [default: n]: " choice
 choice=${choice:-n}  # Устанавливаем значение по умолчанию на 'n', если пользователь нажал Enter
 
 if [[ "$choice" == "y" ]]; then
