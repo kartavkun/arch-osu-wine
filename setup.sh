@@ -254,7 +254,7 @@ sudo fc-cache-32 --force
 echo "The fonts successfully installed."
 
 # Add udev rules
-cp $FILES_DIR/udev/* $UDEV_RULES_DIR
+sudo cp $FILES_DIR/udev/* $UDEV_RULES_DIR
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
 # Функция для копирования конфигов
