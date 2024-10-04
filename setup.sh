@@ -21,7 +21,7 @@ PACKAGES=("wget" "base-devel" "git" "go" "zenity" "xdg-desktop-portal" "linux-ze
 for PACKAGE in "${PACKAGES[@]}"; do
     if ! pacman -Qi "$PACKAGE" &> /dev/null; then
         echo "Installing package '$PACKAGE'..."
-        if ! sudo pacman -S --noconfirm --needed "$PACKAGE"; then
+        if ! sudo pacman -Sy --noconfirm --needed "$PACKAGE"; then
             echo "Error: Failed to install package '$PACKAGE'."
             exit 1
         fi
