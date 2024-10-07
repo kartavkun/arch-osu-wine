@@ -18,9 +18,22 @@ You need to paste the command below into your terminal and follow the instructio
 bash <(curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh)
 ```
 
-Also I highly recommend to use DE or WM with Xorg instead of Wayland. For example, [i3](https://i3wm.org/)
+### Important Note on Xorg and Wayland
 
-For gaming laptop with hybrid graphics IS IMPORTANT
+For playing osu!, it is recommended to use Xorg instead of Wayland, as Wayland can introduce a slight but noticeable input lag, which is critical for gameplay. Xorg provides lower latency and better responsiveness.
+
+Common desktop environments (DE) and window managers (WM) that work on Xorg include:
+
+- [GNOME](https://gnome.org)
+- [KDE Plasma](https://kde.org/ru/plasma-desktop/)
+- [XFCE](https://xfce.org)
+- [i3](https://i3wm.org)
+- [Openbox](http://openbox.org)
+
+If you are using GNOME or KDE, make sure to select the X session when logging in to ensure that you are using Xorg.
+
+Additionally, a specific tweak is applied in Xorg to prioritize the use of the discrete GPU when using gaming laptops with hybrid graphics. This is essential for optimal performance and stability during gameplay.
+
 
 ## Troubleshooting
 #### Audio is "farting"
