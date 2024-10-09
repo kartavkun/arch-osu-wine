@@ -8,7 +8,7 @@ This script installing drivers and osu! for Arch-based distros
 - Better performance than Windows
 - Contains [OpenTabletDriver](https://opentabletdriver.net), [tosu](https://github.com/kotrikd/tosu) and packages for osu files
 - Fonts from Windows
-- udev rules for [Sayodevice web-driver](https://sayodevice.com/home) and [Wootility](https://wootility.io/) (ONLY ON CHROMIUM-BASED BROWSERS)
+- udev rules for [Sayodevice web-driver](https://sayodevice.com/home), [Drunkdeer-Antler](https://drunkdeer-antler.com/) and [Wootility](https://wootility.io/) (ONLY ON CHROMIUM-BASED BROWSERS)
 
 ## Installation
 
