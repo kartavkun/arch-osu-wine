@@ -24,10 +24,17 @@ for PACKAGE in "${PACKAGES[@]}"; do
     fi
 done
 
+clear
+echo -e "   ___            _ ____  _        _     _         __                 _             _      "
+echo -e "  / _ \\ ___ _   _| / ___|| |_ __ _| |__ | | ___   / _| ___  _ __     / \\   _ __ ___| |__   "
+echo -e " | | | / __| | | | \\___ \\| __/ _\` | '_ \\| |/ _ \\ | |_ / _ \\| '__|   / _ \\ | '__/ __| '_ \\  "
+echo -e " | |_| \\__ \\ |_| |_|___) | || (_| | |_) | |  __/ |  _| (_) | |     / ___ \\| | | (__| | | | "
+echo -e "  \\___/|___/\\__,_(_)____/ \\__\\__,_|_.__/|_|\\___| |_|  \\___/|_|    /_/   \\_\\_|  \\___|_| |_| "
+echo ""
 read -p "Do you want to start installing osu!stable? (y/n) [default: y]: " choice
 choice=${choice:-y}  # Устанавливаем значение по умолчанию на 'n', если пользователь нажал Enter
 
-if [[ "$choice" == "n" ]]; then
+if [[ "$choice" == "y" ]]; then
     start_script
 else
     echo "Okay"

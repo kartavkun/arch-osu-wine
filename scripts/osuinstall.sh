@@ -8,6 +8,8 @@ HOME_CONFIG_DIR="$HOME/.config"
 UDEV_RULES_DIR="/etc/udev/rules.d"
 DEVSERVER_DIR="$HOME/ArchOsu/files/devserver"
 
+clear
+
 # Download osu!
 mkdir ~/osu/
 wget --output-document ~/osu/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
