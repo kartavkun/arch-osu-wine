@@ -5,7 +5,7 @@ This script installing drivers and osu! for Arch-based distros
 ## Features
 
 - Low audio latency
-- Better performance than Windows
+- Uses [linux-zen](https://github.com/zen-kernel/zen-kernel) kernel for better performance
 - Contains [OpenTabletDriver](https://opentabletdriver.net), [tosu](https://github.com/kotrikd/tosu) and packages for osu files
 - Fonts from Windows
 - udev rules for [Sayodevice web-driver](https://sayodevice.com/home), [Drunkdeer-Antler](https://drunkdeer-antler.com/) and [Wootility](https://wootility.io/) (ONLY ON CHROMIUM-BASED BROWSERS)
@@ -70,6 +70,7 @@ systemctl --user restart pipewire.service pipewire.socket wireplumber.service pi
 #### If you have other issues, notify me about it in [Issues](https://github.com/kartavkun/arch-osu-wine/issues)
 
 ## Credits:
+- [linux-zen](https://github.com/zen-kernel/zen-kernel) kernel by [Steven Barrett](https://github.com/damentz)
 - [Wineprefix by NelloKudo](https://gitlab.com/NelloKudo/osu-winello-prefix)
 - [Proton by whrvt](https://github.com/whrvt/umubuilder)
 - [Udev rules for Wooting by Wooting themselves](https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules)
