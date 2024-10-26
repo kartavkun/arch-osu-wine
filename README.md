@@ -15,7 +15,10 @@ This script installing drivers and osu! for Arch-based distros
 You need to paste the command below into your terminal and follow the instructions
 
 ```sh
-bash <(curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh)
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh
+```
+```sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/update.sh
 ```
 
 ### Important Note on Xorg and Wayland
