@@ -1,5 +1,15 @@
 #/bin/bash
 
+DOT_LOCAL_DIR="$HOME/.local"
+FILES_DIR="$HOME/ArchOsu/files"
+FONTS_DIR="$FILES_DIR/fonts"
+CONFIG_DIR="$FILES_DIR/config"
+HOME_CONFIG_DIR="$HOME/.config"
+UDEV_RULES_DIR="/etc/udev/rules.d"
+DEVSERVER_DIR="$HOME/ArchOsu/files/devserver"
+
+clear
+
 # Функция для копирования шрифтов
 echo "Installing fonts from Windows..."
 sudo cp -r $FONTS_DIR/* /usr/share/fonts/
