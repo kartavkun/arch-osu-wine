@@ -1,8 +1,13 @@
 #/bin/bash
 
 # Proton-osu mirrors
-PROTONLINK="https://github.com/whrvt/umubuilder/releases/download/proton-osu-9-5/proton-osu-9-5.tar.xz"
+PROTONLINK="https://github.com/whrvt/umubuilder/releases/download/proton-osu-9-6/proton-osu-9-6.tar.xz"
 WINEPREFIX="https://gitlab.com/NelloKudo/osu-winello-prefix/-/raw/master/osu-winello-prefix.tar.xz"
+
+
+# Delete old
+rm -r $HOME/.local/share/wineprefixes/
+rm -r $HOME/.local/share/osuconfig
 
 # Make directories
 mkdir -p "$HOME/.local/bin"
