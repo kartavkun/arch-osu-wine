@@ -8,7 +8,7 @@ git clone https://github.com/kartavkun/arch-osu-wine $HOME/ArchOsu
 cd $HOME/ArchOsu
 git checkout separated
 
-chmod +x $HOME/ArchOsu/scripts/
+$HOME/ArchOsu/scripts/multilib.sh
 }
 
 # Install necessary packages
