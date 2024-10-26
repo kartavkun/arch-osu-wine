@@ -5,6 +5,7 @@ run_script() {
 start_script() {
   # Clone git repo with all files
 git clone https://github.com/kartavkun/arch-osu-wine $HOME/arch-osu-wine
+git checkout separated
 
 chmod +x $HOME/ArchOsu/scripts/
 }
