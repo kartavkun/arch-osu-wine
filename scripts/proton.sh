@@ -23,4 +23,6 @@ tar -xf "$HOME/.winellotmp/proton-osu-9-6.tar.xz" -C "$HOME/.local/share/osuconf
 tar -xf "$HOME/.winellotmp/osu-winello-prefix-umu.tar.xz" -C "$HOME/.local/share/wineprefixes"
 mv "$HOME/.local/share/wineprefixes/osu-umu" "$HOME/.local/share/wineprefixes/osu-wineprefix" 
 
+rm -r $HOME/.winellotmp
+
 $HOME/ArchOsu/scripts/drivers.sh
