@@ -10,12 +10,18 @@ This script installing drivers and osu! for Arch-based distros
 - Fonts from Windows
 - udev rules for [Sayodevice web-driver](https://sayodevice.com/home), [Drunkdeer-Antler](https://drunkdeer-antler.com/) and [Wootility](https://wootility.io/) (ONLY ON CHROMIUM-BASED BROWSERS)
 
-## Installation
+## Installation and update
 
 You need to paste the command below into your terminal and follow the instructions
 
 ```sh
-bash <(curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh)
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh | sh
+```
+
+If you need to update, you need to paste it
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/update.sh | sh
 ```
 
 ### Important Note on Xorg and Wayland
