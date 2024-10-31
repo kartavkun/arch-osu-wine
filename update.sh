@@ -4,6 +4,9 @@
 PROTONLINK="https://github.com/whrvt/umubuilder/releases/download/proton-osu-9-8/proton-osu-9-8.tar.xz"
 WINEPREFIX="https://gitlab.com/NelloKudo/osu-winello-prefix/-/raw/master/osu-winello-prefix.tar.xz"
 
+sudo rm -rf "$HOME/.local/share/osuconfig"
+sudo rm -rf "$HOME/.local/share/wineprefixes"
+
 # Make directories
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
