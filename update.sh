@@ -32,6 +32,9 @@ mv "$HOME/.local/share/wineprefixes/osu-umu" "$HOME/.local/share/wineprefixes/os
 # Clone git repo with all files
 sudo rm -rf $HOME/ArchOsu/
 git clone https://github.com/kartavkun/arch-osu-wine $HOME/ArchOsu
+cd $HOME/ArchOsu
+git checkout proton-9.8
+cd
 
 # Определяем пути
 DOT_LOCAL_DIR="$HOME/.local"
