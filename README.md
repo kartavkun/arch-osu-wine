@@ -1,4 +1,4 @@
-# osu! for Arch-based distros
+# osu! for Arch-based distros (WITH PROTON v9.8)
 
 This script installing drivers and osu! for Arch-based distros
 
