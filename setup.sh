@@ -47,10 +47,10 @@ fi
 yay -S --needed --noconfirm opentabletdriver osu-handler osu-mime tosu
 
 # Fix OTD
-# Regenerate initramfs
-sudo mkinitcpio -P
-# Unload kernel modules
-sudo rmmod wacom hid_uclogic
+echo "blacklist wacom" | sudo tee -a /etc/modprobe.d/blacklist.conf
+sudo rmmod wacom
+echo "blacklist hid_uclogic" | sudo tee -a /etc/modprobe.d/blacklist.conf
+sudo rmmod hid_uclogic
 systemctl --user daemon-reload
 systemctl --user enable opentabletdriver --now
 
