@@ -1,7 +1,7 @@
 #/bin/bash
 
 # Proton-osu mirrors
-PROTONLINK="https://github.com/whrvt/umubuilder/releases/download/proton-osu-9-9/proton-osu-9-9.tar.xz"
+PROTONLINK="https://github.com/whrvt/umubuilder/releases/download/proton-osu-9-10/proton-osu-9-10.tar.xz"
 WINEPREFIX="https://gitlab.com/NelloKudo/osu-winello-prefix/-/raw/master/osu-winello-prefix.tar.xz"
 
 sudo rm -rf "$HOME/.local/share/osuconfig"
