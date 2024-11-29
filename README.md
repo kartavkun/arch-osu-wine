@@ -24,11 +24,11 @@ If you need to update, you need to paste it
 curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/update.sh | sh
 ```
 
-ou! located at ~/osu/
+osu! located at ~/osu/
 
-### Important Note on Xorg and Wayland
+### Important Note for Wayland and OpenTabletDriver
 
-For playing osu!, it is recommended to use Xorg instead of Wayland, as Wayland can introduce a slight but noticeable input lag, which is critical for gameplay. Xorg provides lower latency and better responsiveness.
+Due to Wayland, there is significant latency, so it is recommended to use Xorg for playing osu! standard mode on a graphics tablet. While OpenTabletDriver works through XWayland, performance may be worse than in Xorg.
 
 Common desktop environments (DE) and window managers (WM) that work on Xorg include:
 
@@ -40,7 +40,7 @@ Common desktop environments (DE) and window managers (WM) that work on Xorg incl
 
 If you are using GNOME or KDE, make sure to select the X session when logging in to ensure that you are using Xorg.
 
-Additionally, a specific tweak is applied in Xorg to prioritize the use of the discrete GPU when using gaming laptops with hybrid graphics. This is essential for optimal performance and stability during gameplay.
+Additionally, there is a specific tweak in the script that prioritizes the use of the discrete GPU when using gaming laptops with hybrid graphics. This is essential for optimal performance and stability during gameplay.
 
 ## Troubleshooting
 #### Audio is "farting"
