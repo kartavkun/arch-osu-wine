@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+LAUNCH_ARGS="env PROTONFIXES_DISABLE=1" # Use this for args like prime-run or gamemoderun!
+export PRESSURE_VESSEL_FILESYSTEMS_RW= # Add your external disks paths here if you use symlinks
+
 export WINEDEBUG=${WINEDEBUG:-}
 export WINEESYNC=1 # PROTON_NO_ESYNC=1 is also needed to disable
 export WINEFSYNC=1 # PROTON_NO_FSYNC=1 is also needed to disable
@@ -22,4 +25,4 @@ export WINE_ENABLE_ABS_TABLET_HACK=0 # Set this to 1 to play with absolute mode 
 export STAGING_AUDIO_DURATION=13333 #1.333ms at 48KHz
 export STAGING_AUDIO_PERIOD=13333 #1.333ms at 48KHz
 
-$UMU_RUN $OSUPATH/osu!.exe -devserver gatari.pw # osu! launcher
+$LAUNCH_ARGS "$UMU_RUN" "$OSUPATH/osu!.exe" -devserver gatari.pw # osu! launcher
