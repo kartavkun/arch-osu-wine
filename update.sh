@@ -1,7 +1,7 @@
 #/bin/bash
 
 # Proton-osu mirrors
-PROTONLINK="https://github.com/whrvt/umubuilder/releases/download/proton-osu-9-13/proton-osu-9-13.tar.xz"
+PROTONLINK="https://github.com/whrvt/umubuilder/releases/download/proton-osu-9-14/proton-osu-9-14.tar.xz"
 WINEPREFIX="https://gitlab.com/NelloKudo/osu-winello-prefix/-/raw/master/osu-winello-prefix.tar.xz"
 
 sudo rm -rf "$HOME/.local/share/osuconfig"
@@ -23,7 +23,7 @@ wget -O "$HOME/.winellotmp/proton-osu-9-13.tar.xz" "$PROTONLINK" && chk="$?"
 wget -O "$HOME/.winellotmp/osu-winello-prefix-umu.tar.xz" "$WINEPREFIX" && chk="$?" 
 
 # Extract Proton
-tar -xf "$HOME/.winellotmp/proton-osu-9-13.tar.xz" -C "$HOME/.local/share/osuconfig"
+tar -xf "$HOME/.winellotmp/proton-osu-9-14.tar.xz" -C "$HOME/.local/share/osuconfig"
 
 # Extract Wineprefix
 tar -xf "$HOME/.winellotmp/osu-winello-prefix-umu.tar.xz" -C "$HOME/.local/share/wineprefixes"
