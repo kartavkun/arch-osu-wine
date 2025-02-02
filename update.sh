@@ -19,7 +19,7 @@ mkdir -p "$HOME/.local/share/wineprefixes"
 mkdir -p "$HOME/.winellotmp"
 
 # Download Proton and Wineprefix
-wget -O "$HOME/.winellotmp/proton-osu-9-13.tar.xz" "$PROTONLINK" && chk="$?"
+wget -O "$HOME/.winellotmp/proton-osu-9-14.tar.xz" "$PROTONLINK" && chk="$?"
 wget -O "$HOME/.winellotmp/osu-winello-prefix-umu.tar.xz" "$WINEPREFIX" && chk="$?" 
 
 # Extract Proton
