@@ -1,5 +1,13 @@
 #!/bin/bash
 
+FILES_DIR="$HOME/osuinstall/files/
+UDEV_RULES_DIR="/etc/udev/rules.d"
+HOME_CONFIG_DIR="$HOME/.config"
+CONFIG_DIR="$HOME/osuinstall/config"
+
+# Create udev rules directory
+mkdir -p $UDEV_RULES_DIR
+
 # Add udev rules
 sudo cp $FILES_DIR/udev/* $UDEV_RULES_DIR
 sudo udevadm control --reload-rules && sudo udevadm trigger
