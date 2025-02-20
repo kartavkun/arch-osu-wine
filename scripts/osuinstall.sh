@@ -3,6 +3,10 @@
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share/applications"
 
+# Download osu!
+mkdir ~/osu/
+wget --output-document ~/osu/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
+
 FILES_DIR=$HOME/osuinstall/files
 DOT_LOCAL_DIR=$HOME/.local
 
