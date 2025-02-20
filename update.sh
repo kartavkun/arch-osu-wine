@@ -23,7 +23,6 @@ mkdir -p "$HOME/tmp/"
 rm -rf $HOME/osuinstall
 git clone https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
 cd $HOME/osuinstall
-git checkout separated/script
 
 clear
 $SCRIPT/osuinstall.sh
