@@ -3,8 +3,8 @@
 mkdir -p $HOME/tmp
 FONTS_DIR="$HOME/tmp"
 
-wget -o $FONTS_DIR/WindowsFonts.tar.gz https://gitlab.com/kartavkun/arch-osu-wine-extras/-/raw/main/fonts.tar.gz
-tar -xf $FONTS_DIR/WindowsFonts.tar.gz -C $FONTS_DIR
+wget -O $FONTS_DIR/WindowsFonts.tar.xz https://gitlab.com/kartavkun/arch-osu-wine-extras/-/raw/main/WindowsFonts.tar.xz
+tar -xf $FONTS_DIR/WindowsFonts.tar.xz -C $FONTS_DIR
 
 # Функция для копирования шрифтов
 echo "Installing fonts from Windows..."
