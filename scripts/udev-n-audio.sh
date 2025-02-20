@@ -3,7 +3,7 @@
 FILES_DIR="$HOME/osuinstall/files/"
 UDEV_RULES_DIR="/etc/udev/rules.d"
 HOME_CONFIG_DIR="$HOME/.config"
-CONFIG_DIR="$HOME/osuinstall/config"
+CONFIG_DIR="$HOME/osuinstall/files/config"
 
 # Create udev rules directory
 mkdir -p $UDEV_RULES_DIR
