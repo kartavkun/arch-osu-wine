@@ -23,6 +23,11 @@ mkdir -p "$HOME/tmp/"
 rm -rf $HOME/osuinstall
 git clone https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
 
+clear
 $SCRIPT/osuinstall.sh
+clear
 $SCRIPT/drivers.sh
+clear
 $SCRIPT/devserver.sh
+
+echo "osu! successfully updated!"
