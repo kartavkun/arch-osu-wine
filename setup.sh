@@ -34,14 +34,25 @@ run_script() {
 
   SCRIPT=$HOME/osuinstall/scripts
 
+  clear
   $SCRIPT/yay.sh
+  clear
   $SCRIPT/aur-packages.sh
+  clear
   $SCRIPT/proton.sh
+  clear
   $SCRIPT/nvidia-xorg.sh
+  clear
   $SCRIPT/osuinstall.sh
+  clear
   $SCRIPT/devserver.sh
+  clear
   $SCRIPT/fonts.sh
+  clear
   $SCRIPT/udev-n-audio.sh
+  clear
+
+  echo "osu! successfully installed!"
 }
 
 if [[ -f /etc/os-release ]]; then
