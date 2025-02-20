@@ -30,7 +30,7 @@ run_script() {
     fi
   done
 
-  git clone https://github.com/arch-osu/arch-osu-wine.git $HOME/osuinstall
+  git clone https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
 
   SCRIPT=$HOME/osuinstall/scripts
 
