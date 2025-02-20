@@ -25,11 +25,11 @@ git clone https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
 cd $HOME/osuinstall
 git checkout separated/script
 
-# clear
+clear
 $SCRIPT/osuinstall.sh
-# clear
+clear
 $SCRIPT/drivers.sh
-# clear
+clear
 $SCRIPT/devserver.sh
 
 echo "osu! successfully updated!"

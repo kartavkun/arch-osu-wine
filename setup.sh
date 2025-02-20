@@ -37,23 +37,23 @@ run_script() {
 
   SCRIPT=$HOME/osuinstall/scripts
 
-  # clear
+  clear
   $SCRIPT/yay.sh
-  # clear
+  clear
   $SCRIPT/aur-packages.sh
-  # clear
+  clear
   $SCRIPT/proton.sh
-  # clear
+  clear
   $SCRIPT/nvidia-xorg.sh
-  # clear
+  clear
   $SCRIPT/osuinstall.sh
-  # clear
+  clear
   $SCRIPT/devserver.sh
-  # clear
+  clear
   $SCRIPT/fonts.sh
-  # clear
+  clear
   $SCRIPT/udev-n-audio.sh
-  # clear
+  clear
 
   echo "osu! successfully installed!"
 }
