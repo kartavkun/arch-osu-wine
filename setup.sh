@@ -43,7 +43,7 @@ run_script() {
   clear
   $SCRIPT/proton.sh
   clear
-  $SCRIPT/nvidia-xorg.sh
+  $SCRIPT/drivers.sh
   clear
   $SCRIPT/osuinstall.sh
   clear
