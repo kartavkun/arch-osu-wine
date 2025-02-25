@@ -17,3 +17,4 @@ chmod +x $DOT_LOCAL_DIR/bin/osu
 # Make .desktop file for rofi/wofi
 cp $FILES_DIR/.local/osu.desktop $DOT_LOCAL_DIR/share/applications
 chmod +x $DOT_LOCAL_DIR/share/applications/osu.desktop
+cp $FILES_DIR/.local/osu-icon.png $DOT_LOCAL_DIR/share/applications

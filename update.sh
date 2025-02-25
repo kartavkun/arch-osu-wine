@@ -25,10 +25,13 @@ git clone --depth 1 https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinst
 cd $HOME/osuinstall
 
 clear
+$SCRIPT/proton.sh
+clear
 $SCRIPT/osuinstall.sh
 clear
 $SCRIPT/drivers.sh
 clear
 $SCRIPT/devserver.sh
+clear
 
 echo "osu! successfully updated!"

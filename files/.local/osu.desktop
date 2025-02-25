@@ -2,6 +2,9 @@
 Type=Application
 Comment=щыг!
 Exec=.local/bin/osu
+Icon=~/.local/share/applications/osu-icon.png
+Terminal=false
+Categories=Game;
 GenericName=щыг!
 Name=osu!
 StartupNotify=true
