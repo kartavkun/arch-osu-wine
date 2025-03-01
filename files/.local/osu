@@ -3,6 +3,12 @@
 LAUNCH_ARGS="env PROTONFIXES_DISABLE=1" # Use this for args like prime-run or gamemoderun!
 export PRESSURE_VESSEL_FILESYSTEMS_RW=  # Add your external disks paths here if you use symlinks
 
+if [ echo $XDG_SESSION_TYPE | grep -q "wayland" ]; then
+  export OTD_MODE=1
+else
+  export OTD_MODE=0
+fi
+
 export WINEDEBUG=${WINEDEBUG:-}
 export WINEESYNC=1                                   # PROTON_NO_ESYNC=1 is also needed to disable
 export WINEFSYNC=1                                   # PROTON_NO_FSYNC=1 is also needed to disable
@@ -21,7 +27,7 @@ export OSUPATH="$HOME/osu"
 export vblank_mode=0                           # Disables vsync for mesa
 export __GL_SYNC_TO_VBLANK=0                   # Disables vsync for NVIDIA >=510
 export WINEDLLOVERRIDES=winemenubuilder.exe=d# # Blocks wine from creating .desktop files
-export WINE_ENABLE_ABS_TABLET_HACK=0           # Set this to 1 to play with absolute mode in OTD on Wayland (might cause issues with cursor, but feel free to try!)
+export WINE_ENABLE_ABS_TABLET_HACK=$OTD_MODE   # Set this to 1 to play with absolute mode in OTD on Wayland (might cause issues with cursor, but feel free to try!)
 
 export STAGING_AUDIO_DURATION=13333 #1.333ms at 48KHz
 export STAGING_AUDIO_PERIOD=13333   #1.333ms at 48KHz
