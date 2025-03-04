@@ -83,6 +83,11 @@ Then execute this command
 systemctl --user restart pipewire.service pipewire.socket wireplumber.service pipewire-pulse.service pipewire-pulse.socket
 ```
 
+After that, you need to change values for STAGING_AUDIO_PERIOD and STAGING_AUDIO_DURATION in `~/.local/bin/osu`
+```
+sed -i -E 's/^(export STAGING_AUDIO_PERIOD=)[0-9]+/\113333/; s/^(export STAGING_AUDIO_DURATION=)[0-9]+/\126666/' ~/.local/bin/osu
+```
+
 #### I want to connect to Gatari or Akatsuki
 Execute this command:
 ```
