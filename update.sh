@@ -31,7 +31,5 @@ $SCRIPT/osuinstall.sh
 clear
 $SCRIPT/drivers.sh
 clear
-$SCRIPT/devserver.sh
-clear
 
 echo "osu! successfully updated!"

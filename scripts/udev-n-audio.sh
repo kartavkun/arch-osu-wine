@@ -12,9 +12,16 @@ mkdir -p $UDEV_RULES_DIR
 sudo cp $FILES_DIR/udev/* $UDEV_RULES_DIR
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
-# Функция для копирования конфигов
-echo "Install wireplumber config files"
-cp -r "$CONFIG_DIR/wireplumber" "$HOME_CONFIG_DIR/"
+# Проверка, установлен ли pipewire-media-session
+if pacman -Qs pipewire-media-session >/dev/null; then
+  # Если pipewire-media-session установлен
+  echo "Install pipewire-media-session config files"
+  cp -r "$CONFIG_DIR/media-session.d" "$HOME_CONFIG_DIR/"
+else
+  # Если pipewire-media-session не установлен
+  echo "Install wireplumber config files"
+  cp -r "$CONFIG_DIR/wireplumber" "$HOME_CONFIG_DIR/"
+fi
 
 echo "Install pipewire config files"
 cp -r "$CONFIG_DIR/pipewire" "$HOME_CONFIG_DIR/"

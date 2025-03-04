@@ -16,7 +16,7 @@ run_script() {
   fi
 
   # Install necessary packages
-  PACKAGES=("wget" "base-devel" "git" "go" "zenity" "xdg-desktop-portal" "linux-zen" "linux-zen-headers" "pipewire" "wireplumber" "xdg-utils" "xdg-desktop-portal-gtk")
+  PACKAGES=("wget" "base-devel" "git" "go" "zenity" "xdg-desktop-portal" "linux-zen" "linux-zen-headers" "pipewire" "xdg-utils" "xdg-desktop-portal-gtk")
 
   for PACKAGE in "${PACKAGES[@]}"; do
     if ! pacman -Qi "$PACKAGE" &>/dev/null; then
@@ -46,8 +46,6 @@ run_script() {
   $SCRIPT/drivers.sh
   clear
   $SCRIPT/osuinstall.sh
-  clear
-  $SCRIPT/devserver.sh
   clear
   $SCRIPT/fonts.sh
   clear
