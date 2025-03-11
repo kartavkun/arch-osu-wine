@@ -18,3 +18,23 @@ chmod +x $DOT_LOCAL_DIR/bin/osu
 cp $FILES_DIR/.local/osu.desktop $DOT_LOCAL_DIR/share/applications
 chmod +x $DOT_LOCAL_DIR/share/applications/osu.desktop
 cp $FILES_DIR/.local/osu-icon.png $DOT_LOCAL_DIR/share/applications
+
+# Fix to osu-handler not working since Stable update
+# 20250122.1: https://osu.ppy.sh/home/changelog/stable40/20250122.1
+# Read more at: https://github.com/NelloKudo/osu-winello/issues/175#issuecomment-2708859950
+
+# Symlinking the osu! folder to D: drive in Wineprefix
+rm -rf "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
+ln -s "$HOME/osu" "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
+
+# Importing the regedit file with the file associations fixes
+UMU_RUNTIME_UPDATE=0 PROTONFIXES_DISABLE=1 GAMEID="umu-727" \
+WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" \
+PROTONPATH="$HOME/.local/share/osuconfig/proton-osu" \
+"$HOME/.local/share/osuconfig/proton-osu/umu-run" regedit /s "$FILES_DIR/osu-handler-fix.reg"
+
+# Fixing the osu-handler entry from AUR (if installed)
+if [ -e "/usr/share/applications/osu-file-extensions-handler.desktop" ]; then
+    cp "/usr/share/applications/osu-file-extensions-handler.desktop" "$HOME/.local/share/applications"
+    sed -i "s|Exec=/usr/lib/osu-handler/osu-handler-wine .*osu! |Exec=/usr/lib/osu-handler/osu-handler-wine |" "$HOME/.local/share/applications/osu-file-extensions-handler.desktop"
+fi
