@@ -10,7 +10,10 @@ sudo rm -rf $HOME/.local/bin/osu-akatsuki
 sudo rm -rf $HOME/.local/share/applications/osu.desktop
 sudo rm -rf $HOME/.local/share/applications/osu-akatsuki.desktop
 sudo rm -rf $HOME/.local/share/applications/osu-gatari.desktop
+sudo rm -rf $HOME/.local/share/applications/osu-file-extensions-handler.desktop
 sudo rm -rf $HOME/tmp/
+
+update-desktop-database ~/.local/share/applications
 
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
