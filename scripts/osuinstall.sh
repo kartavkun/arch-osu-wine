@@ -29,12 +29,28 @@ ln -s "$HOME/osu" "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
 
 # Importing the regedit file with the file associations fixes
 UMU_RUNTIME_UPDATE=0 PROTONFIXES_DISABLE=1 GAMEID="umu-727" \
-WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" \
-PROTONPATH="$HOME/.local/share/osuconfig/proton-osu" \
-"$HOME/.local/share/osuconfig/proton-osu/umu-run" regedit /s "$FILES_DIR/osu-handler-fix.reg"
+  WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" \
+  PROTONPATH="$HOME/.local/share/osuconfig/proton-osu" \
+  "$HOME/.local/share/osuconfig/proton-osu/umu-run" regedit /s "$FILES_DIR/osu-handler-fix.reg"
 
 # Fixing the osu-handler entry from AUR (if installed)
+PACKAGES=("osu-handler")
+
+for PACKAGE in "${PACKAGES[@]}"; do
+  if ! pacman -Qi "$PACKAGE" &>/dev/null; then
+    echo "Installing package '$PACKAGE'..."
+    if ! sudo pacman -Sy --noconfirm --needed "$PACKAGE"; then
+      echo "Error: Failed to install package '$PACKAGE'."
+      exit 1
+    fi
+  else
+    echo "Package '$PACKAGE' is already installed."
+  fi
+done
+
 if [ -e "/usr/share/applications/osu-file-extensions-handler.desktop" ]; then
-    cp "/usr/share/applications/osu-file-extensions-handler.desktop" "$HOME/.local/share/applications"
-    sed -i "s|Exec=/usr/lib/osu-handler/osu-handler-wine .*osu! |Exec=/usr/lib/osu-handler/osu-handler-wine |" "$HOME/.local/share/applications/osu-file-extensions-handler.desktop"
+  cp "/usr/share/applications/osu-file-extensions-handler.desktop" "$HOME/.local/share/applications"
+  sed -i "s|Exec=/usr/lib/osu-handler/osu-handler-wine .*osu! |Exec=/usr/lib/osu-handler/osu-handler-wine |" "$HOME/.local/share/applications/osu-file-extensions-handler.desktop"
+  update-desktop-database "$HOME/.local/share/applications"
 fi
+
