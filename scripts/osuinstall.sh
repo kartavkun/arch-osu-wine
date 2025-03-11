@@ -53,4 +53,3 @@ if [ -e "/usr/share/applications/osu-file-extensions-handler.desktop" ]; then
   sed -i "s|Exec=/usr/lib/osu-handler/osu-handler-wine .*osu! |Exec=/usr/lib/osu-handler/osu-handler-wine |" "$HOME/.local/share/applications/osu-file-extensions-handler.desktop"
   update-desktop-database "$HOME/.local/share/applications"
 fi
-

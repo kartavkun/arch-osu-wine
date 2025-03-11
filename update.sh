@@ -14,6 +14,7 @@ sudo rm -rf $HOME/.local/share/applications/osu-file-extensions-handler.desktop
 sudo rm -rf $HOME/tmp/
 
 update-desktop-database ~/.local/share/applications
+sudo rm -rf $HOME/.local/share/applications/mimeinfo.cache
 
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
