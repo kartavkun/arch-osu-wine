@@ -45,6 +45,10 @@ If you are using GNOME or KDE, make sure to select the X11 session when logging 
 Additionally, there is a specific tweak in the script that prioritizes the use of the discrete GPU when using gaming laptops with hybrid graphics. This is essential for optimal performance and stability during gameplay.
 
 ## Troubleshooting
+
+#### osu! files won't open
+osu-handler package for opening osu! files making two instances of osu!. You need to change default application to open osu! files to another osu! instance. Just right click on osu! file and select "Open with" and choose another osu!, also set other osu! instance as default application for osu! files
+
 #### Audio is "farting"
 The problem is your PC, is kinda slow, unfortunately, but you can fix it (probably)
 
@@ -83,10 +87,10 @@ Then execute this command
 systemctl --user restart pipewire.service pipewire.socket wireplumber.service pipewire-pulse.service pipewire-pulse.socket
 ```
 
-After that, you need to change values for STAGING_AUDIO_PERIOD and STAGING_AUDIO_DURATION in `~/.local/bin/osu`
-```
-sed -i -E 's/^(export STAGING_AUDIO_PERIOD=)[0-9]+/\113333/; s/^(export STAGING_AUDIO_DURATION=)[0-9]+/\126666/' ~/.local/bin/osu
-```
+<!--After that, you need to change values for STAGING_AUDIO_PERIOD and STAGING_AUDIO_DURATION in `~/.local/bin/osu`-->
+<!-- ``` -->
+<!--sed -i -E 's/^(export STAGING_AUDIO_PERIOD=)[0-9]+/\113333/; s/^(export STAGING_AUDIO_DURATION=)[0-9]+/\126666/' ~/.local/bin/osu-->
+<!-- ``` -->
 
 #### I want to connect to Gatari or Akatsuki
 Execute this command:
@@ -103,6 +107,7 @@ Execute this command:
 - [Udev rules for SayoDevice by me](https://www.reddit.com/r/osugame/comments/1fa919k/how_to_fix_sayodevice_web_app_on_linux/)
 - Nvidia prio in Xorg for hybrid graphic made with [Yudek](https://osu.ppy.sh/users/16149779)
 - Udev rules for Drunkdeer-Antler by random guy from Youtube or Reddit (I really don't remember, sorry)
+- osu-handler fix for latest updates by [NelloKudo](https://github.com/NelloKudo). Thank you so much! <3
 
 ## License
 
