@@ -36,7 +36,7 @@ wget -O "$HOME/tmp/osu-winello-prefix-umu.tar.xz" "$PREFIXLINK"
 wget -O "$HOME/tmp/yawl" "$YAWLLINK"
 
 # Extract Wine-osu
-tar -xf "/tmp/wine-osu-winello-fonts-wow64-$MAJOR.$MINOR-$PATCH-x86_64.tar.xz" -C "$HOME/.local/share/osuconfig"
+tar -xf "$HOME/tmp/wine-osu-winello-fonts-wow64-$MAJOR.$MINOR-$PATCH-x86_64.tar.xz" -C "$HOME/.local/share/osuconfig"
 
 # Extract Wineprefix
 tar -xf "$HOME/tmp/osu-winello-prefix-umu.tar.xz" -C "$HOME/.local/share/wineprefixes"
