@@ -1,5 +1,8 @@
 # osu! for Arch-based distros
 
+> [!WARNING]
+> This build is on beta and can have some issues. Info about yawl and more is there - https://github.com/NelloKudo/osu-winello/pull/177
+
 This script installing drivers and osu! for Arch-based distros
 
 ## Features
@@ -15,27 +18,35 @@ This script installing drivers and osu! for Arch-based distros
 You need to paste the command below into your terminal and follow the instructions
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh | sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/yawl-build/setup.sh | sh
 ```
 
 If you need to update, you need to paste it
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/update.sh | sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/yawl-build/update.sh | sh
 ```
 
 osu! located at ~/osu/
 
 ### Important Note for Wayland and OpenTabletDriver
 
-OpenTabletDriver is not supported on Wayland natively, but you can use it, but only if you have single monitor and you need to change Absolute mode to Artist mode
-More info about this on [OpenTabletDriver official site](https://opentabletdriver.net/Wiki/FAQ/LinuxAppSpecific#osu-is-not-detecting-input-from-my-tablet-wayland)
+OpenTabletDriver is not supported on Wayland natively. Anyway, you can use it, but you need to change Absolute mode to Artist mode.
+If you're using Hyprland, you need to add this to your Hyprland config file:
+```
+device {
+    name = opentabletdriver-virtual-artist-tablet 
+    output = [your output. Exec hyprctl monitors to check
+}
+```
+This thing will fix the area position in osu! when you have two and more monitors. Also you need to change monitor from single output to overall output. idk how to call it correctly, but you've got the point, i guess
+
 Otherwise, use X11 sessions
 
 Common desktop environments (DE) and window managers (WM) that work on X11 include:
 
 - [GNOME](https://gnome.org)
-- [KDE Plasma](https://kde.org/ru/plasma-desktop/)
+- [KDE Plasma](https://kde.org/en/plasma-desktop/)
 - [XFCE](https://xfce.org)
 - [i3](https://i3wm.org)
 - [Openbox](http://openbox.org)
