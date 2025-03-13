@@ -49,4 +49,4 @@ chmod +x "$HOME/.local/share/osuconfig/yawl"
 # Install and verify yawl ASAP, the wrapper mode does not download/install the runtime if no arguments are passed
 YAWL_VERBS="make_wrapper=winello;exec=$WINE_PATH/bin/wine;wineserver=$WINE_PATH/bin/wineserver" "$HOME/.local/share/osuconfig/yawl"
 
-YAWL_VERBS="verify" "$YAWL_PATH" "--version" || InstallError "There was an error setting up yawl!"
+YAWL_VERBS="verify" "$YAWL_PATH" "--version"
