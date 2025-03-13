@@ -31,8 +31,7 @@ run_script() {
   done
 
   rm -rf $HOME/osuinstall
-  git clone --depth 1 https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
-  cd $HOME/osuinstall
+  git clone --depth=1 --branch=yaml-build https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
 
   SCRIPT=$HOME/osuinstall/scripts
 
