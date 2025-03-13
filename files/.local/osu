@@ -40,6 +40,9 @@ export __GL_THREADED_OPTIMIZATIONS="${__GL_THREADED_OPTIMIZATIONS:-}"
 # (unsupported, use at your own risk! Will LOWER FPS for a slightly LOWER input latency)
 export __GL_MaxFramesAllowed="${__GL_MaxFramesAllowed:-}"
 
+export STAGING_AUDIO_PERIOD=6667
+export STAGING_AUDIO_DURATION=13333
+
 ###################################################################################################
 # osu-winello internal variables, you probably don't have to touch these!
 ###################################################################################################
@@ -54,20 +57,5 @@ export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/osu-wineprefix"
 
 export WINEDLLOVERRIDES="winemenubuilder.exe=;" # Blocks wine from creating .desktop files
 
-LaunchWine() {
-  local EXE_ARG="${YAWL_PATH}"
-  declare -a POST_ARGS=("${@}")
-
-  WINELLO_LOGS_PATH="${XDG_DATA_HOME}/osuconfig/winello.log"
-  echo "The run log is located in ${WINELLO_LOGS_PATH}. Attach this file if you make an issue on GitHub or ask for help on Discord."
-  echo "Launching: ${PRE_ARGS[*]} ${EXE_ARG} ${POST_ARGS[*]}"
-  echo ""
-  exec "${PRE_ARGS[@]}" "${EXE_ARG}" "${POST_ARGS[@]}" &>"${WINELLO_LOGS_PATH}"
-}
-
-LaunchOsu() {
-  OSU_EXE=("C:\\windows\\system32\\start.exe" "/b" "/wait" "${OSU_WINEEXE}")
-
-  export WINEDEBUG="+timestamp,+pid,+tid,+threadname,+debugstr,+loaddll,+winebrowser,+exec ${WINEDEBUG:-}"
-  LaunchWine "${OSU_EXE[@]}" "${@}"
-}
+echo "Launching osu!: $HOME/osu/osu!.exe"
+$LAUNCH_ARGS $YAWL_PATH "$HOME/osu/osu!.exe"

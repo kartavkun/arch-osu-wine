@@ -40,7 +40,7 @@ run_script() {
   clear
   $SCRIPT/aur-packages.sh
   clear
-  $SCRIPT/proton.sh
+  $SCRIPT/wine.sh
   clear
   $SCRIPT/drivers.sh
   clear
