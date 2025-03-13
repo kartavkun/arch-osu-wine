@@ -79,12 +79,15 @@ Execute this command:
 
 ## Credits:
 - [Wineprefix by NelloKudo](https://gitlab.com/NelloKudo/osu-winello-prefix)
-- [Proton by whrvt](https://github.com/whrvt/umubuilder)
+- [yawl by whrvt](https://github.com/whrvt/yawl)
+- [WoW64 Wine Build by NelloKudo](https://github.com/NelloKudo/WineBuilder)
+
 - [Udev rules for Wootility by Wooting themselves](https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules)
 - [Udev rules for SayoDevice by me](https://www.reddit.com/r/osugame/comments/1fa919k/how_to_fix_sayodevice_web_app_on_linux/)
-- Nvidia prio in Xorg for hybrid graphic made with [Yudek](https://osu.ppy.sh/users/16149779)
 - Udev rules for Drunkdeer-Antler by random guy from Youtube or Reddit (I really don't remember, sorry)
-- osu-handler fix for latest updates by [NelloKudo](https://github.com/NelloKudo). Thank you so much! <3
+
+- Nvidia prio in Xorg for hybrid graphic made with [Yudek](https://osu.ppy.sh/users/16149779)
+- osu-handler fix for latest updates by [NelloKudo](https://github.com/NelloKudo)
 
 ## License
 
