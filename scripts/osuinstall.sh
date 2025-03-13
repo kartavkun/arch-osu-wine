@@ -28,10 +28,10 @@ rm -rf "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
 ln -s "$HOME/osu" "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
 
 # Importing the regedit file with the file associations fixes
-UMU_RUNTIME_UPDATE=0 PROTONFIXES_DISABLE=1 GAMEID="umu-727" \
-  WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" \
-  PROTONPATH="$HOME/.local/share/osuconfig/proton-osu" \
-  "$HOME/.local/share/osuconfig/proton-osu/umu-run" regedit /s "$FILES_DIR/osu-handler-fix.reg"
+YAWL_PATH="$HOME/.local/share/osuconfig/yawl-winello"
+
+WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" \
+  $YAWL_PATH regedit /s "$FILES_DIR/osu-handler-fix.reg"
 
 # Fixing the osu-handler entry from AUR (if installed)
 PACKAGES=("osu-handler")
