@@ -32,14 +32,14 @@ YAWL_PATH="$HOME/.local/share/osuconfig/yawl-winello"
 
 # Download Wine, yawl and Wineprefix
 wget -O "$HOME/tmp/wine-osu-winello-fonts-wow64-$MAJOR.$MINOR-$PATCH-x86_64.tar.xz" "$WINELINK"
-wget -O "$HOME/tmp/osu-winello-prefix-umu.tar.xz" "$WINEPREFIX"
+wget -O "$HOME/tmp/osu-winello-prefix-umu.tar.xz" "$PREFIXLINK"
 wget -O "$HOME/tmp/yawl" "$YAWLLINK"
 
 # Extract Wine-osu
 tar -xf "/tmp/wine-osu-winello-fonts-wow64-$MAJOR.$MINOR-$PATCH-x86_64.tar.xz" -C "$HOME/.local/share/osuconfig"
 
 # Extract Wineprefix
-tar -xf "$HOME/tmp/wine-osu-winello-fonts-wow64-$MAJOR.$MINOR-$PATCH-x86_64.tar.xz" -C "$HOME/.local/share/wineprefixes"
+tar -xf "$HOME/tmp/osu-winello-prefix-umu.tar.xz" -C "$HOME/.local/share/wineprefixes"
 mv "$HOME/.local/share/wineprefixes/osu-umu" "$HOME/.local/share/wineprefixes/osu-wineprefix"
 
 # Move yawl
