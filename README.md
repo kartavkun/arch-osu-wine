@@ -52,45 +52,11 @@ osu-handler package for opening osu! files making two instances of osu!. You nee
 #### Audio is "farting"
 The problem is your PC, is kinda slow, unfortunately, but you can fix it (probably)
 
-I made a script for this, just use this command and change value to 128:
+Just execute this command:
 ```
 ~/osuinstall/scripts/audio-config.sh
 ```
 
-If this script didn't work, you can try to change buffer size in `pipewire.conf` and `pipewire-pulse.conf` in `.config/pipewire`
-
-You need to edit `pipewire.conf` and `pipewire-pulse.conf` in `.config/pipewire`
-
-You need to change values in these files:
-
-`pipewire.conf`
-
-> default.clock.quantum    = ~~64~~ 128
->
-> default.clock.min-quantum  = ~~64~~ 128
-
-`pipewire-pulse.conf`
-
-> node.latency = ~~64~~ 128/48000
-
-> pulse.min.req       = ~~64~~ 128/48000
-> 
-> pulse.default.req   = ~~64~~ 128/48000
-> 
-> pulse.min.frag      = ~~64~~ 128/48000
-> 
-> pulse.min.quantum   = ~~64~~ 128/48000
-> 
-
-Then execute this command
-```
-systemctl --user restart pipewire.service pipewire.socket wireplumber.service pipewire-pulse.service pipewire-pulse.socket
-```
-
-<!--After that, you need to change values for STAGING_AUDIO_PERIOD and STAGING_AUDIO_DURATION in `~/.local/bin/osu`-->
-<!-- ``` -->
-<!--sed -i -E 's/^(export STAGING_AUDIO_PERIOD=)[0-9]+/\113333/; s/^(export STAGING_AUDIO_DURATION=)[0-9]+/\126666/' ~/.local/bin/osu-->
-<!-- ``` -->
 
 #### I want to connect to Gatari or Akatsuki
 Execute this command:

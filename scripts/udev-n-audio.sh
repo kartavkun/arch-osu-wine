@@ -4,6 +4,7 @@ FILES_DIR="$HOME/osuinstall/files/"
 UDEV_RULES_DIR="/etc/udev/rules.d"
 HOME_CONFIG_DIR="$HOME/.config"
 CONFIG_DIR="$HOME/osuinstall/files/config"
+# USER="$(whoami)"
 
 # Create udev rules directory
 mkdir -p $UDEV_RULES_DIR
@@ -22,6 +23,21 @@ else
   echo "Install wireplumber config files"
   cp -r "$CONFIG_DIR/wireplumber" "$HOME_CONFIG_DIR/"
 fi
+
+echo "Add user to audio group"
+usermod -a -G audio $USER
+
+echo "Set max priority in security limits"
+cp "$CONFIG_DIR/pipewire-extras/limits.conf" "/etc/security/limits.conf"
+
+echo "Set max priority in pulse settings"
+sudo cp "$CONFIG_DIR/pipewire-extras/10-better-latency.conf" "/etc/pulse/daemon.conf.d/10-better-latency.conf"
+
+cp "$CONFIG_DIR/pipewire-extras/default.pa" "/etc/pulse/default.pa"
+
+echo "Backup pipewire config files"
+cp ~/.config/pipewire/pipewire.conf ~/.config/pipewire/pipewire.conf.bak &&
+  cp ~/.config/pipewire/pipewire-pulse.conf ~/.config/pipewire/pipewire-pulse.conf.bak
 
 echo "Install pipewire config files"
 cp -r "$CONFIG_DIR/pipewire" "$HOME_CONFIG_DIR/"
