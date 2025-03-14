@@ -15,7 +15,7 @@ LASTWINEVERSION=0
 # Wine-osu mirror
 WINELINK="https://github.com/NelloKudo/WineBuilder/releases/download/wine-osu-staging-$MAJOR.$MINOR-$PATCH-yawl-test/wine-osu-winello-fonts-wow64-$MAJOR.$MINOR-$PATCH-x86_64.tar.xz"
 
-YAWLVERSION=0.5.5
+YAWLVERSION=0.6.0
 
 PREFIXLINK="https://gitlab.com/NelloKudo/osu-winello-prefix/-/raw/master/osu-winello-prefix.tar.xz" # Default WINEPREFIX
 YAWLLINK="https://github.com/whrvt/yawl/releases/download/v${YAWLVERSION}/yawl"                     # yawl (Wine launcher for Steam Runtime)
@@ -49,4 +49,4 @@ chmod +x "$HOME/.local/share/osuconfig/yawl"
 # Install and verify yawl ASAP, the wrapper mode does not download/install the runtime if no arguments are passed
 YAWL_VERBS="make_wrapper=winello;exec=$WINE_PATH/bin/wine;wineserver=$WINE_PATH/bin/wineserver" "$HOME/.local/share/osuconfig/yawl"
 
-YAWL_VERBS="verify" "$YAWL_PATH" "--version"
+YAWL_VERBS="update;verify" "$YAWL_PATH" "--version"
