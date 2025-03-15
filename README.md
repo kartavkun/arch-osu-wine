@@ -15,27 +15,35 @@ This script installing drivers and osu! for Arch-based distros
 You need to paste the command below into your terminal and follow the instructions
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh | sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/yawl-build/setup.sh | sh
 ```
 
 If you need to update, you need to paste it
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/update.sh | sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/yawl-build/update.sh | sh
 ```
 
 osu! located at ~/osu/
 
 ### Important Note for Wayland and OpenTabletDriver
 
-OpenTabletDriver is not supported on Wayland natively, but you can use it, but only if you have single monitor and you need to change Absolute mode to Artist mode
-More info about this on [OpenTabletDriver official site](https://opentabletdriver.net/Wiki/FAQ/LinuxAppSpecific#osu-is-not-detecting-input-from-my-tablet-wayland)
+OpenTabletDriver is not supported on Wayland natively. Anyway, you can use it, but you need to change Absolute mode to Artist mode.
+If you're using Hyprland, you need to add this to your Hyprland config file:
+```
+device {
+    name = opentabletdriver-virtual-artist-tablet 
+    output = [your output. Exec hyprctl monitors to check
+}
+```
+This thing will fix the area position in osu! when you have two and more monitors. Also you need to change monitor from single output to overall output. idk how to call it correctly, but you've got the point, i guess
+
 Otherwise, use X11 sessions
 
 Common desktop environments (DE) and window managers (WM) that work on X11 include:
 
 - [GNOME](https://gnome.org)
-- [KDE Plasma](https://kde.org/ru/plasma-desktop/)
+- [KDE Plasma](https://kde.org/en/plasma-desktop/)
 - [XFCE](https://xfce.org)
 - [i3](https://i3wm.org)
 - [Openbox](http://openbox.org)
@@ -52,45 +60,11 @@ osu-handler package for opening osu! files making two instances of osu!. You nee
 #### Audio is "farting"
 The problem is your PC, is kinda slow, unfortunately, but you can fix it (probably)
 
-I made a script for this, just use this command and change value to 128:
+Just execute this command:
 ```
 ~/osuinstall/scripts/audio-config.sh
 ```
 
-If this script didn't work, you can try to change buffer size in `pipewire.conf` and `pipewire-pulse.conf` in `.config/pipewire`
-
-You need to edit `pipewire.conf` and `pipewire-pulse.conf` in `.config/pipewire`
-
-You need to change values in these files:
-
-`pipewire.conf`
-
-> default.clock.quantum    = ~~64~~ 128
->
-> default.clock.min-quantum  = ~~64~~ 128
-
-`pipewire-pulse.conf`
-
-> node.latency = ~~64~~ 128/48000
-
-> pulse.min.req       = ~~64~~ 128/48000
-> 
-> pulse.default.req   = ~~64~~ 128/48000
-> 
-> pulse.min.frag      = ~~64~~ 128/48000
-> 
-> pulse.min.quantum   = ~~64~~ 128/48000
-> 
-
-Then execute this command
-```
-systemctl --user restart pipewire.service pipewire.socket wireplumber.service pipewire-pulse.service pipewire-pulse.socket
-```
-
-<!--After that, you need to change values for STAGING_AUDIO_PERIOD and STAGING_AUDIO_DURATION in `~/.local/bin/osu`-->
-<!-- ``` -->
-<!--sed -i -E 's/^(export STAGING_AUDIO_PERIOD=)[0-9]+/\113333/; s/^(export STAGING_AUDIO_DURATION=)[0-9]+/\126666/' ~/.local/bin/osu-->
-<!-- ``` -->
 
 #### I want to connect to Gatari or Akatsuki
 Execute this command:
@@ -102,12 +76,15 @@ Execute this command:
 
 ## Credits:
 - [Wineprefix by NelloKudo](https://gitlab.com/NelloKudo/osu-winello-prefix)
-- [Proton by whrvt](https://github.com/whrvt/umubuilder)
+- [yawl by whrvt](https://github.com/whrvt/yawl)
+- [WoW64 Wine Build by NelloKudo](https://github.com/NelloKudo/WineBuilder)
+
 - [Udev rules for Wootility by Wooting themselves](https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules)
 - [Udev rules for SayoDevice by me](https://www.reddit.com/r/osugame/comments/1fa919k/how_to_fix_sayodevice_web_app_on_linux/)
-- Nvidia prio in Xorg for hybrid graphic made with [Yudek](https://osu.ppy.sh/users/16149779)
 - Udev rules for Drunkdeer-Antler by random guy from Youtube or Reddit (I really don't remember, sorry)
-- osu-handler fix for latest updates by [NelloKudo](https://github.com/NelloKudo). Thank you so much! <3
+
+- Nvidia prio in Xorg for hybrid graphic made with [Yudek](https://osu.ppy.sh/users/16149779)
+- osu-handler fix for latest updates by [NelloKudo](https://github.com/NelloKudo)
 
 ## License
 

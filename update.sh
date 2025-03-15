@@ -2,19 +2,19 @@
 
 SCRIPT=$HOME/osuinstall/scripts
 
-sudo rm -rf $HOME/.local/share/osuconfig
-sudo rm -rf $HOME/.local/share/wineprefixes/
-sudo rm -rf $HOME/.local/bin/osu
-sudo rm -rf $HOME/.local/bin/osu-gatari
-sudo rm -rf $HOME/.local/bin/osu-akatsuki
-sudo rm -rf $HOME/.local/share/applications/osu.desktop
-sudo rm -rf $HOME/.local/share/applications/osu-akatsuki.desktop
-sudo rm -rf $HOME/.local/share/applications/osu-gatari.desktop
-sudo rm -rf $HOME/.local/share/applications/osu-file-extensions-handler.desktop
-sudo rm -rf $HOME/tmp/
+rm -rf $HOME/.local/share/osuconfig
+rm -rf $HOME/.local/share/wineprefixes/
+rm -rf $HOME/.local/bin/osu
+rm -rf $HOME/.local/bin/osu-gatari
+rm -rf $HOME/.local/bin/osu-akatsuki
+rm -rf $HOME/.local/share/applications/osu.desktop
+rm -rf $HOME/.local/share/applications/osu-akatsuki.desktop
+rm -rf $HOME/.local/share/applications/osu-gatari.desktop
+rm -rf $HOME/.local/share/applications/osu-file-extensions-handler.desktop
+rm -rf $HOME/tmp/
 
 update-desktop-database ~/.local/share/applications
-sudo rm -rf $HOME/.local/share/applications/mimeinfo.cache
+rm -rf $HOME/.local/share/applications/mimeinfo.cache
 
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
@@ -26,10 +26,9 @@ mkdir -p "$HOME/tmp/"
 # Delete old repo
 rm -rf $HOME/osuinstall
 git clone --depth=1 https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
-cd $HOME/osuinstall
 
 clear
-$SCRIPT/proton.sh
+$SCRIPT/wine.sh
 clear
 $SCRIPT/osuinstall.sh
 clear
