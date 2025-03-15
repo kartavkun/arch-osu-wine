@@ -1,8 +1,5 @@
 # osu! for Arch-based distros
 
-> [!WARNING]
-> This build is on beta and can have some issues. Info about yawl and more is there - https://github.com/NelloKudo/osu-winello/pull/177
-
 This script installing drivers and osu! for Arch-based distros
 
 ## Features
