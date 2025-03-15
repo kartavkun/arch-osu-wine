@@ -25,7 +25,7 @@ mkdir -p "$HOME/tmp/"
 
 # Delete old repo
 rm -rf $HOME/osuinstall
-git clone --depth=1 --branch=dev https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
+git clone --depth=1 https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
 
 clear
 $SCRIPT/wine.sh
