@@ -3,6 +3,10 @@
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share/applications"
 
+export WINENTSYNC="0" # Don't use these for setup-related stuff to be safe
+export WINEFSYNC="0"
+export WINEESYNC="0"
+
 # Download osu!
 mkdir ~/osu/
 wget --output-document ~/osu/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
