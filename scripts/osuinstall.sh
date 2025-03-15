@@ -33,6 +33,15 @@ YAWL_PATH="$HOME/.local/share/osuconfig/yawl-winello"
 WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" \
   $YAWL_PATH regedit /s "$FILES_DIR/osu-handler-fix.reg"
 
+# Fix osu! compatibility more
+cp "${SCRDIR}"/stuff/dxvk-osu/x64/*.dll "$WINEPREFIX/drive_c/windows/system32"
+cp "${SCRDIR}"/stuff/dxvk-osu/x32/*.dll "$WINEPREFIX/drive_c/windows/syswow64"
+
+# Setting DllOverrides for those to Native
+for dll in dxgi d3d8 d3d9 d3d10core d3d11; do
+  $YAWL_PATH reg add "HKEY_CURRENT_USER\Software\Wine\DllOverrides" /v "$dll" /d native /f
+done
+
 # Fixing the osu-handler entry from AUR (if installed)
 PACKAGES=("osu-handler")
 

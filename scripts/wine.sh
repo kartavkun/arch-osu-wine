@@ -9,10 +9,11 @@ mkdir -p "$HOME/.local/share/wineprefixes"
 MAJOR=10
 MINOR=3
 PATCH=6
+WINEVERSION=$MAJOR.$MINOR-$PATCH
 LASTWINEVERSION=0
 
 # Wine-osu mirror
-WINELINK="https://github.com/NelloKudo/WineBuilder/releases/download/wine-osu-staging-$MAJOR.$MINOR-$PATCH-yawl-test/wine-osu-winello-fonts-wow64-$MAJOR.$MINOR-$PATCH-x86_64.tar.xz"
+WINELINK="https://github.com/NelloKudo/WineBuilder/releases/download/wine-osu-staging-${WINEVERSION}/wine-osu-winello-fonts-wow64-${WINEVERSION}-x86_64.tar.xz"
 
 YAWLVERSION=0.6.2
 
