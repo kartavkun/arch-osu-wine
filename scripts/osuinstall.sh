@@ -34,8 +34,8 @@ WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" \
   $YAWL_PATH regedit /s "$FILES_DIR/osu-handler-fix.reg"
 
 # Fix osu! compatibility more
-cp "$HOME/osuinstall/files/dxvk/x64/*.dll" "$WINEPREFIX/drive_c/windows/syswow64"
-cp "$HOME/osuinstall/files/dxvk/x32/*.dll" "$WINEPREFIX/drive_c/windows/syswow64"
+cp "$HOME/osuinstall/files/dxvk/x64/*.dll" "$HOME/.local/share/wineprefixes/osu-wineprefix/drive_c/windows/system32"
+cp "$HOME/osuinstall/files/dxvk/x32/*.dll" "$HOME/.local/share/wineprefixes/osu-wineprefix/drive_c/windows/syswow64"
 
 # Setting DllOverrides for those to Native
 for dll in dxgi d3d8 d3d9 d3d10core d3d11; do
