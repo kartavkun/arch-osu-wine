@@ -15,13 +15,13 @@ This script installing drivers and osu! for Arch-based distros
 You need to paste the command below into your terminal and follow the instructions
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/yawl-build/setup.sh | sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/setup.sh | sh
 ```
 
 If you need to update, you need to paste it
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/yawl-build/update.sh | sh
+curl -fsSL https://raw.githubusercontent.com/kartavkun/arch-osu-wine/main/update.sh | sh
 ```
 
 osu! located at ~/osu/
