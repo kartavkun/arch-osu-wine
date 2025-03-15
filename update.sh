@@ -25,9 +25,8 @@ mkdir -p "$HOME/tmp/"
 
 # Delete old repo
 rm -rf $HOME/osuinstall
-git clone https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
+git clone --depth=1 --branch=umu-build https://github.com/kartavkun/arch-osu-wine.git $HOME/osuinstall
 cd $HOME/osuinstall
-git checkout umu-build
 
 clear
 $SCRIPT/proton.sh
