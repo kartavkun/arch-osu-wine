@@ -43,7 +43,7 @@ cp "$HOME"/osuinstall/files/dxvk/x32/*.dll "$HOME/.local/share/wineprefixes/osu-
 
 # Setting DllOverrides for those to Native
 for dll in dxgi d3d8 d3d9 d3d10core d3d11; do
-  $YAWL_PATH reg add "HKEY_CURRENT_USER\Software\Wine\DllOverrides" /v "$dll" /d native /f
+  WINEPREFIX="$HOME/.local/share/wineprefixes/osu-wineprefix" $YAWL_PATH reg add "HKEY_CURRENT_USER\Software\Wine\DllOverrides" /v "$dll" /d native /f
 done
 
 # Fixing the osu-handler entry from AUR (if installed)
