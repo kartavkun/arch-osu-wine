@@ -57,7 +57,7 @@ export __GL_MaxFramesAllowed="${__GL_MaxFramesAllowed:-}"
 export STAGING_AUDIO_PERIOD=6667
 export STAGING_AUDIO_DURATION=13333
 
-export TOSU_OSU_PATH="$HOME/osu!"
+export TOSU_OSU_PATH="${TOSU_OSU_PATH:-$HOME/osu!}"
 
 ###################################################################################################
 # osu-winello internal variables, you probably don't have to touch these!
