@@ -5,19 +5,33 @@ LAUNCH_ARGS="" # Put arguments like prime-run, gamemoderun, or mangohud in betwe
 # Set this to your external disk paths if you use symlinks!
 export PRESSURE_VESSEL_FILESYSTEMS_RW="${PRESSURE_VESSEL_FILESYSTEMS_RW:-}"
 
-# Set this to 1 or 2 to play with absolute mode in OTD on Wayland (if this doesn't work, check the "Tablet issues" page in the osu-winello wiki)
-export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-0}"
+SessionType() {
+  if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-1}"
+    sleep 10
+    if grep -q "OpenTabletDriver.Desktop.Output.AbsoluteMode" "$HOME/.config/OpenTabletDriver/settings.json"; then
+      sed -i 's/OpenTabletDriver.Desktop.Output.AbsoluteMode/OpenTabletDriver.Desktop.Output.LinuxArtistMode/g' "$HOME/.config/OpenTabletDriver/settings.json"
+      systemctl --user restart opentabletdriver
+      sleep 2
+      sed -i 's/OpenTabletDriver.Desktop.Output.LinuxArtistMode/OpenTabletDriver.Desktop.Output.AbsoluteMode/g' "$HOME/.config/OpenTabletDriver/settings.json"
+      systemctl --user restart opentabletdriver
+    fi
+  else
+    export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-0}"
+  fi
+}
+
 # Set this to 1 to enable Windows fonts/boss key, but it might cause crashes in future updates! Revert back if so.
 export WINE_BLOCK_GET_VERSION="${WINE_BLOCK_GET_VERSION:-0}"
 # Set this to 1 to force fixes for alt-tab (only if needed!)
 export WINE_ENABLE_OSU_FOCUS_FIX="${WINE_ENABLE_OSU_FOCUS_FIX:-0}"
 
 # Enables NTsync (when possible, requires Linux >=6.14 or the DKMS module installed)
-export WINENTSYNC="${WINENTSYNC:-0}"
+export WINENTSYNC="${WINENTSYNC:-1}"
 # Enables Fsync (when possible)
-export WINEFSYNC="${WINEFSYNC:-1}"
+export WINEFSYNC="${WINEFSYNC:-0}"
 # Enables Esync (when possible)
-export WINEESYNC="${WINEESYNC:-1}"
+export WINEESYNC="${WINEESYNC:-0}"
 
 # Uncomment the line below to try the native winewayland.drv driver (unsupported, but feel free to experiment if you're on Wayland)
 # export DISPLAY=
@@ -29,7 +43,7 @@ export WINEDEBUG="${WINEDEBUG:-}"
 export vblank_mode="${vblank_mode:-0}"
 # Put true after :- to enable threaded OpenGL optimizations for AMD/Intel
 # (unsupported, use at your own risk! May INCREASE FPS, but may also INCREASE input latency due to multithreading overhead)
-export mesa_glthread="${mesa_glthread:-}"
+export mesa_glthread="${mesa_glthread:-true}"
 
 # Disables vsync for NVIDIA >=510
 export __GL_SYNC_TO_VBLANK="${__GL_SYNC_TO_VBLANK:-0}"
@@ -42,6 +56,8 @@ export __GL_MaxFramesAllowed="${__GL_MaxFramesAllowed:-}"
 
 export STAGING_AUDIO_PERIOD=6667
 export STAGING_AUDIO_DURATION=13333
+
+export TOSU_OSU_PATH="$HOME/osu!"
 
 ###################################################################################################
 # osu-winello internal variables, you probably don't have to touch these!
@@ -57,5 +73,10 @@ export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/osu-wineprefix"
 
 export WINEDLLOVERRIDES="winemenubuilder.exe=;" # Blocks wine from creating .desktop files
 
-echo "Launching osu!: $HOME/osu/osu!.exe"
-$LAUNCH_ARGS $YAWL_PATH "$HOME/osu/osu!.exe"
+LaunchOsu() {
+  echo "Launching osu!: $HOME/osu!/osu!.exe"
+  $LAUNCH_ARGS $YAWL_PATH "$HOME/osu!/osu!.exe"
+}
+
+LaunchOsu &
+SessionType

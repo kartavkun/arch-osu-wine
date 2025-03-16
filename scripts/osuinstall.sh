@@ -8,8 +8,13 @@ export WINEFSYNC="0"
 export WINEESYNC="0"
 
 # Download osu!
-mkdir ~/osu/
-wget --output-document ~/osu/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
+if [ ! -d "$HOME/osu" ]; then
+  mv "$HOME/osu" "$HOME/osu!"
+else
+  mkdir -p "$HOME/osu!"
+fi
+
+wget --output-document ~/osu\!/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
 
 FILES_DIR=$HOME/osuinstall/files
 DOT_LOCAL_DIR=$HOME/.local
