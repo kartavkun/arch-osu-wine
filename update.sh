@@ -32,6 +32,8 @@ $SCRIPT/wine.sh
 clear
 $SCRIPT/osuinstall.sh
 clear
+$SCRIPT/tosu.sh
+clear
 $SCRIPT/drivers.sh
 clear
 
