@@ -34,7 +34,7 @@ cp $FILES_DIR/.local/osu-icon.png $DOT_LOCAL_DIR/share/applications
 
 # Symlinking the osu! folder to D: drive in Wineprefix
 rm -rf "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
-ln -s "$HOME/osu" "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
+ln -s "$HOME/osu!" "$HOME/.local/share/wineprefixes/osu-wineprefix/dosdevices/d:"
 
 # Importing the regedit file with the file associations fixes
 YAWL_PATH="$HOME/.local/share/osuconfig/yawl-winello"
