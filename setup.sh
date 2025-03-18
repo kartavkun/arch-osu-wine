@@ -48,6 +48,8 @@ run_script() {
   clear
   $SCRIPT/osuinstall.sh
   clear
+  $SCRIPT/tosu.sh
+  clear
   $SCRIPT/fonts.sh
   clear
   $SCRIPT/udev-n-audio.sh
