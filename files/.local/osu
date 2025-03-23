@@ -5,10 +5,15 @@ LAUNCH_ARGS="" # Put arguments like prime-run, gamemoderun, or mangohud in betwe
 # Set this to your external disk paths if you use symlinks!
 export PRESSURE_VESSEL_FILESYSTEMS_RW="${PRESSURE_VESSEL_FILESYSTEMS_RW:-}"
 
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+  export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-2}"
+else
+  export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-0}"
+fi
+
 SessionType() {
   if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-2}"
-    sleep 10
+    sleep 15
     if grep -q "OpenTabletDriver.Desktop.Output.AbsoluteMode" "$HOME/.config/OpenTabletDriver/settings.json"; then
       sed -i 's/OpenTabletDriver.Desktop.Output.AbsoluteMode/OpenTabletDriver.Desktop.Output.LinuxArtistMode/g' "$HOME/.config/OpenTabletDriver/settings.json"
       systemctl --user restart opentabletdriver
@@ -16,8 +21,6 @@ SessionType() {
       sed -i 's/OpenTabletDriver.Desktop.Output.LinuxArtistMode/OpenTabletDriver.Desktop.Output.AbsoluteMode/g' "$HOME/.config/OpenTabletDriver/settings.json"
       systemctl --user restart opentabletdriver
     fi
-  else
-    export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-0}"
   fi
 }
 
