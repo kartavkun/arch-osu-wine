@@ -8,7 +8,7 @@ export WINEFSYNC="0"
 export WINEESYNC="0"
 
 # Download osu!
-if [ ! -d "$HOME/osu" ]; then
+if [ -d "$HOME/osu" ]; then
   mv "$HOME/osu" "$HOME/osu!"
 else
   mkdir -p "$HOME/osu!"
