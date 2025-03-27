@@ -1,0 +1,3 @@
+# Aula Win60HE/68HE
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2e3c", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="2e3c", TAG+="uaccess"

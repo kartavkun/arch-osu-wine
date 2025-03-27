@@ -8,7 +8,15 @@ This script installing drivers and osu! for Arch-based distros
 - Better performance than Windows
 - Contains [OpenTabletDriver](https://opentabletdriver.net), [tosu](https://github.com/kotrikd/tosu) and packages for osu files
 - Fonts from Windows
-- udev rules for [Sayodevice web-driver](https://sayodevice.com/home), [Drunkdeer-Antler](https://drunkdeer-antler.com/) and [Wootility](https://wootility.io/) (ONLY ON CHROMIUM-BASED BROWSERS)
+
+Udev rules for web drivers of:
+- [Wooting](https://wootility.io)
+- [SayoDevice](https://sayodevice.com)
+- [DrunkDeer](https://drunkdeer.com)
+- [Aula](https://device.aulacn.com)
+- [NuPhy](https://nuphy.io/en)
+- [Madlions](https://hub.fgg.com.cn)
+- [Keychron](https://launcher.keychron.com)
 
 ## Installation and update
 
@@ -28,15 +36,7 @@ osu! located at ~/osu/
 
 ### Important Note for Wayland and OpenTabletDriver
 
-OpenTabletDriver is not supported on Wayland natively. Anyway, you can use it, but you need to change Absolute mode to Artist mode.
-If you're using Hyprland, you need to add this to your Hyprland config file:
-```
-device {
-    name = opentabletdriver-virtual-artist-tablet 
-    output = [your output. Exec hyprctl monitors to check
-}
-```
-This thing will fix the area position in osu! when you have two and more monitors. Also you need to change monitor from single output to overall output. idk how to call it correctly, but you've got the point, i guess
+OpenTabletDriver is not supported on Wayland natively, but script has session type checker that can fix OTD. If it doesn't work, so you need to change input mode from `Absolute mode` to `Artist mode` and change display to `Virtual Display`(if you have multi-monitor setup), but it has some latency and smoothing.
 
 Otherwise, use X11 sessions
 
