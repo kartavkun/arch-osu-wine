@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES_DIR="$HOME/osuinstall/files/"
+FILES_DIR="$HOME/osuinstall/files"
 UDEV_RULES_DIR="/etc/udev/rules.d"
 HOME_CONFIG_DIR="$HOME/.config"
 CONFIG_DIR="$HOME/osuinstall/files/config"
