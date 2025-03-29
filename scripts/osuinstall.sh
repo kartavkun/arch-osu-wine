@@ -14,6 +14,10 @@ else
   mkdir -p "$HOME/osu!"
 fi
 
+if [[ -d "$HOME/osu!/osu!.exe" ]]; then
+  rm "$HOME/osu!/osu!.exe"
+fi
+
 wget --output-document ~/osu\!/osu\!.exe https://m1.ppy.sh/r/osu\!install.exe
 
 FILES_DIR=$HOME/osuinstall/files
