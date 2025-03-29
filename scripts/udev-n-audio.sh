@@ -10,7 +10,7 @@ SCRIPT_USER="$(whoami)"
 mkdir -p $UDEV_RULES_DIR
 
 # Add udev rules
-sudo cp $FILES_DIR/udev/* $UDEV_RULES_DIR
+sudo cp $FILES_DIR/udev/. $UDEV_RULES_DIR
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
 # Проверка, установлен ли pipewire-media-session
