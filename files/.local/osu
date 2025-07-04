@@ -11,33 +11,17 @@ else
   export WINE_ENABLE_ABS_TABLET_HACK="${WINE_ENABLE_ABS_TABLET_HACK:-0}"
 fi
 
-SessionType() {
-  if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    sleep 15
-    if grep -q "OpenTabletDriver.Desktop.Output.AbsoluteMode" "$HOME/.config/OpenTabletDriver/settings.json"; then
-      sed -i 's/OpenTabletDriver.Desktop.Output.AbsoluteMode/OpenTabletDriver.Desktop.Output.LinuxArtistMode/g' "$HOME/.config/OpenTabletDriver/settings.json"
-      systemctl --user restart opentabletdriver
-      sleep 2
-      sed -i 's/OpenTabletDriver.Desktop.Output.LinuxArtistMode/OpenTabletDriver.Desktop.Output.AbsoluteMode/g' "$HOME/.config/OpenTabletDriver/settings.json"
-      systemctl --user restart opentabletdriver
-    fi
-  fi
-}
-
 # Set this to 1 to enable Windows fonts/boss key, but it might cause crashes in future updates! Revert back if so.
 export WINE_BLOCK_GET_VERSION="${WINE_BLOCK_GET_VERSION:-0}"
 # Set this to 1 to force fixes for alt-tab (only if needed!)
 export WINE_ENABLE_OSU_FOCUS_FIX="${WINE_ENABLE_OSU_FOCUS_FIX:-0}"
 
 # Enables NTsync (when possible, requires Linux >=6.14 or the DKMS module installed)
-export WINENTSYNC="${WINENTSYNC:-0}"
+export WINENTSYNC=1
 # Enables Fsync (when possible)
-export WINEFSYNC="${WINEFSYNC:-1}"
+# export WINEFSYNC=0
 # Enables Esync (when possible)
-export WINEESYNC="${WINEESYNC:-1}"
-
-# Uncomment the line below to try the native winewayland.drv driver (unsupported, but feel free to experiment if you're on Wayland)
-# export DISPLAY=
+# export WINEESYNC=0
 
 # Set custom logging channels for Wine
 export WINEDEBUG="${WINEDEBUG:-}"
@@ -46,19 +30,18 @@ export WINEDEBUG="${WINEDEBUG:-}"
 export vblank_mode="${vblank_mode:-0}"
 # Put true after :- to enable threaded OpenGL optimizations for AMD/Intel
 # (unsupported, use at your own risk! May INCREASE FPS, but may also INCREASE input latency due to multithreading overhead)
-export mesa_glthread="${mesa_glthread:-true}"
+# export mesa_glthread="${mesa_glthread:-true}"
 
 # Disables vsync for NVIDIA >=510
 export __GL_SYNC_TO_VBLANK="${__GL_SYNC_TO_VBLANK:-0}"
 # Put 1 after :- to enable threaded OpenGL optimizations for NVIDIA
 # (unsupported, use at your own risk! May INCREASE FPS, but may also INCREASE input latency due to multithreading overhead)
-export __GL_THREADED_OPTIMIZATIONS="${__GL_THREADED_OPTIMIZATIONS:-1}"
+# export __GL_THREADED_OPTIMIZATIONS="${__GL_THREADED_OPTIMIZATIONS:-1}"
 # Put 1 after :- to minimize the pre-rendered frames for NVIDIA (driver default is 2, 0 does nothing)
 # (unsupported, use at your own risk! Will LOWER FPS for a slightly LOWER input latency)
-export __GL_MaxFramesAllowed="${__GL_MaxFramesAllowed:-0}"
+# export __GL_MaxFramesAllowed="${__GL_MaxFramesAllowed:-0}"
 
-export STAGING_AUDIO_PERIOD=6667
-export STAGING_AUDIO_DURATION=13333
+# export PULSE_LATENCY_MSEC=1
 
 export TOSU_OSU_PATH="${TOSU_OSU_PATH:-$HOME/osu!}"
 
@@ -81,5 +64,4 @@ LaunchOsu() {
   $LAUNCH_ARGS $YAWL_PATH "$HOME/osu!/osu!.exe"
 }
 
-LaunchOsu &
-SessionType
+LaunchOsu

@@ -7,7 +7,7 @@ mkdir -p "$HOME/.local/share/wineprefixes"
 
 # Wine-osu current versions for update
 MAJOR=10
-MINOR=8
+MINOR=10
 PATCH=2
 WINEVERSION=$MAJOR.$MINOR-$PATCH
 LASTWINEVERSION=0
