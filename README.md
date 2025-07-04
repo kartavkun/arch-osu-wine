@@ -57,6 +57,16 @@ Additionally, there is a specific tweak in the script that prioritizes the use o
 #### osu! files won't open
 osu-handler package for opening osu! files making two instances of osu!. You need to change default application to open osu! files to another osu! instance. Just right click on osu! file and select "Open with" and choose another osu!, also set other osu! instance as default application for osu! files
 
+#### Audio is "farting"
+The problem is your PC, is kinda slow, unfortunately, but you can fix it (probably)
+
+Just execute this command:
+```
+~/osuinstall/scripts/audio-config.sh
+```
+And select other quantum (default: 32)
+
+
 #### I want to connect to Gatari or Akatsuki
 Execute this command:
 ```

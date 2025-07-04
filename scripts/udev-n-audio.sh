@@ -37,12 +37,3 @@ sudo mkdir -p /etc/pulse/daemon.conf.d
 sudo cp "$CONFIG_DIR/pipewire-extras/10-better-latency.conf" "/etc/pulse/daemon.conf.d/10-better-latency.conf"
 
 sudo cp "$CONFIG_DIR/pipewire-extras/default.pa" "/etc/pulse/default.pa"
-
-echo "Backup pipewire config files"
-cp ~/.config/pipewire/pipewire.conf ~/.config/pipewire/pipewire.conf.bak &&
-  cp ~/.config/pipewire/pipewire-pulse.conf ~/.config/pipewire/pipewire-pulse.conf.bak
-
-echo "Install pipewire config files"
-cp -r "$CONFIG_DIR/pipewire" "$HOME_CONFIG_DIR/"
-
-systemctl --user restart pipewire.service pipewire.socket wireplumber.service pipewire-pulse.service pipewire-pulse.socket
