@@ -7,15 +7,15 @@ mkdir -p "$HOME/.local/share/wineprefixes"
 
 # Wine-osu current versions for update
 MAJOR=10
-MINOR=12
-PATCH=1
+MINOR=15
+PATCH=4
 WINEVERSION=$MAJOR.$MINOR-$PATCH
 LASTWINEVERSION=0
 
 # Wine-osu mirror
 WINELINK="https://github.com/NelloKudo/WineBuilder/releases/download/wine-osu-staging-${WINEVERSION}/wine-osu-winello-fonts-wow64-${WINEVERSION}-x86_64.tar.xz"
 
-YAWLVERSION=0.7.1
+YAWLVERSION=0.8.2
 
 PREFIXLINK="https://gitlab.com/NelloKudo/osu-winello-prefix/-/raw/master/osu-winello-prefix.tar.xz" # Default WINEPREFIX
 YAWLLINK="https://github.com/whrvt/yawl/releases/download/v${YAWLVERSION}/yawl"                     # yawl (Wine launcher for Steam Runtime)
